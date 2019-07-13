@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/s', function () {
+Route::get('/start', function () {
     return view('welcome');
 });
 
-
 Route::get('/', function () {
-    return view('home');
+    return view('layouts.app');
 });
+
+// Route::get('/dash', function() {
+//     return view('');
+// });
+
+
