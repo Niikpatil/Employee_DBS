@@ -11,16 +11,14 @@
 |
 */
 
-Route::get('/start', function () {
-    return view('welcome');
-});
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('layouts.app');
 });
 
-// Route::get('/dash', function() {
-//     return view('');
-// });
+
+Route::get('/', function() {
+    return view('dashboard.index');
+});
 
 
