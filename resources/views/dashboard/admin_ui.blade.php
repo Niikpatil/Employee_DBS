@@ -18,7 +18,7 @@
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>
@@ -38,11 +38,11 @@
                             </div>
 
                         </div>
-                        <div class="text-value">Admin</div>
+                        <div class="text-value">Employees</div>
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>
@@ -62,11 +62,11 @@
                             </div>
 
                         </div>
-                        <div class="text-value">Admin</div>
+                        <div class="text-value">Salaries</div>
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>
@@ -86,11 +86,11 @@
                             </div>
 
                         </div>
-                        <div class="text-value">Admin</div>
+                        <div class="text-value">Division</div>
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>
@@ -112,11 +112,11 @@
                             </div>
 
                         </div>
-                        <div class="text-value">Admin</div>
+                        <div class="text-value">Department</div>
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>
@@ -136,11 +136,11 @@
                             </div>
 
                         </div>
-                        <div class="text-value">Admin</div>
+                        <div class="text-value">Cities</div>
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>
@@ -160,11 +160,11 @@
                             </div>
 
                         </div>
-                        <div class="text-value">Admin</div>
+                        <div class="text-value">States</div>
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>
@@ -184,11 +184,11 @@
                             </div>
 
                         </div>
-                        <div class="text-value">Admin</div>
+                        <div class="text-value">Counties</div>
                         <div>Total {@__@}</div>
                     </div>
 
-                    <div class="mt-3 mx-3" style="height:70px;"></div>
+                    <div class="mt-3 mx-3" style="height:30px;"></div>
 
                 </div>
             </div>

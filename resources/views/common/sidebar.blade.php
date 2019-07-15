@@ -2,42 +2,38 @@
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" href="main.html">
-                <i class="nav-icon icon-speedometer"></i> Dashboard
+                <i class="nav-icon icon-home"></i> Dashboard
             </a>
         </li>
 
         <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-pie-chart"></i>Company Info</a>
+                <i class="nav-icon icon-layers"></i>Company details</a>
             <ul class="nav-dropdown-items">
             
                 <li class="nav-item">
                     <a class="nav-link" href="base/breadcrumb.html">
-                        <i class="nav-icon icon-puzzle"></i> Breadcrumb</a>
+                        <i class="nav-icon icon-puzzle"></i> Department</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="base/cards.html">
-                        <i class="nav-icon icon-puzzle"></i> Cards</a>
+                        <i class="nav-icon icon-puzzle"></i> Division</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="base/carousel.html">
-                        <i class="nav-icon icon-puzzle"></i> Carousel</a>
+                        <i class="nav-icon icon-euro"></i>Salaries</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="base/collapse.html">
-                        <i class="nav-icon icon-puzzle"></i> Collapse</a>
+                        <i class="nav-icon icon-puzzle"></i> City</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="base/forms.html">
-                        <i class="nav-icon icon-puzzle"></i> Forms</a>
+                        <i class="nav-icon icon-puzzle"></i> State</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="base/forms.html">
-                        <i class="nav-icon icon-puzzle"></i> Forms</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="base/forms.html">
-                        <i class="nav-icon icon-puzzle"></i> Forms</a>
+                        <i class="nav-icon icon-puzzle"></i> Country</a>
                 </li>
                 
             </ul>
@@ -45,8 +41,8 @@
 
         <li class="nav-item">
             <a class="nav-link" href="charts.html">
-                <i class="nav-icon icon-calculator"></i> Employee Record</a>
-        </li>
+                <i class="nav-icon  icon-people"></i> Employee</a>
+        </li> 
 
         <li class="nav-item">
             <a class="nav-link" href="charts.html">
