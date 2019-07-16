@@ -12,7 +12,7 @@
 
 <div class="app-body">
     <div class="container">
-        @include('dashboard.table')
+        @include('admin.table')
     </div>
 </div>
 
