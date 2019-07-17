@@ -40,12 +40,12 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="employee">
                 <i class="nav-icon  icon-people"></i> Employee</a>
         </li> 
 
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="admin">
                 <i class="nav-icon icon-star"></i> Admin</a>
         </li>
 
