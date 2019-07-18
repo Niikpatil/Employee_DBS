@@ -13,6 +13,16 @@
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+
+
+//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css
+//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css
+//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css
+
+
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -35,6 +45,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- Datatables Script-->
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
     <!-- Include the script only on homepage -->
     @if(Request::path() === 'admin')
     <script src="js/main.js"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
 use Illuminate\Http\Request;
 
 class EmployeesController extends Controller
@@ -34,9 +35,14 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empdata = $request->validate([
+                    'first_name' => 'required | min:3',
+                    'last_name'  => 'required | min:3',
+                    'gender'     => 'gender | max:7',
+        ]);
     }
 
+    
     /**
      * Display the specified resource.
      *

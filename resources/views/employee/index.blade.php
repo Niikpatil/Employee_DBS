@@ -7,11 +7,10 @@
         <li class="breadcrumb-item"> Dashboard</li>
     </ol>
 
-
+    
     <div class="app-body">
         <div class="container">
-            @include('admin.table')
+            @include('employee.table')
         </div>
     </div>
-
 @endsection
