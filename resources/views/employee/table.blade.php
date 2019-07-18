@@ -5,13 +5,13 @@
                 <div class="card">
                     <div class="card-header"> Employee Table </div>
                     <div class="card-body">
-                        <table class="table table-responsive-sm">
+                        <table class="table table-responsive-sm" id="table">
                             <thead class="table-dark text">
                                 <tr>
-                                    <th>First_name</th>
-                                    <th>Job_Profile</th>
-                                    <th>Shift</th>
-                                    <th>Option</th>
+                                    <th class="text-center">First_name</th>
+                                    <th class="text-center">Job_Profile</th>
+                                    <th class="text-center">Shift</th>
+                                    <th class="text-center">Option</th>
                                 </tr>
                             </thead>
                             <tbody>
