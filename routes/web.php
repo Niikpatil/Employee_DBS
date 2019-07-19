@@ -11,21 +11,19 @@
 |
 */
 
+Route::resource('employee', 'EmployeesController');
+
 
 Route::get('/home', function () {
     return view('layouts.app');
 });
 
+
 Route::get('/admin', function () {
     return view('admin.index');
 });
 
-Route::get('/employee', function(){
-    return view('employee.index');
-});
 
 Route::get('/', function() {
     return view('dashboard.index');
 });
-
-

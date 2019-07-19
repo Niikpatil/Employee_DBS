@@ -14,7 +14,9 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        //
+        $employee = Employee::all();
+
+        return view('employee.index', compact('employee'));
     }
 
     /**
@@ -49,12 +51,9 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()  
     {
-
-        $employee = Employee::all();
-
-        return view('employee.index', compact('employee'));
+        //
     }
 
     /**

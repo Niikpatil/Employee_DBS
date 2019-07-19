@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="employee">
+            <a class="nav-link" href="{{ route('employee.index') }}" >
                 <i class="nav-icon  icon-people"></i> Employee</a>
         </li> 
 

@@ -1,11 +1,17 @@
-    <div class="animated fadeIn">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 
-        <div class="row m-4">
-            <div class=" col-lg-12">
-                <div class="card">
-                    <div class="card-header"> Employee Table </div>
-                    <div class="card-body">
-                        <table class="table table-responsive-sm" id="table">
+    <h1>Hi alll</h1>
+
+
+    <table>
                             <thead class="table-dark text">
                                 <tr>
                                     <th class="text-center">First_name</th>
@@ -15,50 +21,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+
+                            @foreach ($employee as $emp)
                                 <tr>
-                                    <td>Samppa Nori</td>
-                                    <td>2012/01/01</td>
-                                    <td>Member</td>
-                                    <td>
-                                        <button type="button" class="btn btn-brand btn-xing">
-                                            View
-                                        </button> 
-                                        <button type="button" class="btn btn-brand btn-css3">
-                                            Update
-                                        </button>
-                                        <button type="button" class="btn btn-brand btn-spotify">
-                                            Delete
-                                        </button>
-
-                                        {{-- <span class="badge badge-success">Active</span> --}}
-                                    </td>
+                                    <td>{{ $emp->first_name }}</td>
+                                    <td>{{ $emp->last_name }}</td>
+                                    <td>{{ $emp->city }}</td>
                                 </tr>
-                                </tbody>
-                        </table>
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#">Prev</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">4</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                            @endforeach
 
-        </div>
+                            </tbody>
+    </table>
 
-    </div>
+</body>
+</html>
