@@ -1,7 +1,7 @@
 <nav class="sidebar-nav">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="main.html">
+            <a class="nav-link" href="\">
                 <i class="nav-icon icon-home"></i> Dashboard
             </a>
         </li>

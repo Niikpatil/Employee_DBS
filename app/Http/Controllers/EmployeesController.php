@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Employee;
 use Illuminate\Http\Request;
 
+use DataTables;
+
 class EmployeesController extends Controller
 {
     /**
@@ -12,12 +14,28 @@ class EmployeesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        if($request->ajax()){
+
         $employee = Employee::all();
 
-        return view('employee.index', compact('employee'));
-    }
+        return DataTables::of($employee)
+                        ->addIndexColumn()
+                        ->addColumn('action', function($row){
+
+                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                            return $btn;
+
+
+                        })
+                        ->rowColumns(['action'])
+                        ->make(true);
+        }
+
+            return view('employee.index');
+    }                
 
     /**
      * Show the form for creating a new resource.
