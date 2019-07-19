@@ -35,11 +35,11 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        $empdata = $request->validate([
-                    'first_name' => 'required | min:3',
-                    'last_name'  => 'required | min:3',
-                    'gender'     => 'gender | max:7',
-        ]);
+        // $empdata = $request->validate([
+        //             'first_name' => 'required | min:3',
+        //             'last_name'  => 'required | min:3',
+        //             'gender'     => 'gender | max:7',
+        // ]);
     }
 
     
@@ -51,7 +51,10 @@ class EmployeesController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $employee = Employee::all();
+
+        return view('employee.index', compact('employee'));
     }
 
     /**
