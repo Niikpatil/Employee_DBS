@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 
@@ -18,38 +19,16 @@
                             <div class="card-body">
 
 
-
-                                <table class="table table-responsive-sm" id="table">
+                                <table class="table table-responsive-sm" id="user_table">
                                     <thead class="table-dark">
                                         <tr>
-                                            <th>First_name</th>
-                                            <th>Job_Profile</th>
-                                            <th>Shift</th>
-                                            <th class="text-center">Option</th>
+                                            {{-- <th width="10%">Id</th> --}}
+                                            <th width="30%">First_name</th>
+                                            <th width="25%">Job_Profile</th>
+                                            <th width="25%">Shift</th>
+                                            <th  class="text-center">Option</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-
-                                    @foreach ($employee as $emp)
-                                        <tr>
-                                            <td> {{ $emp -> first_name }} </td>
-                                            <td> {{ $emp -> last_name }} </td>
-                                            <td> {{ $emp -> city }} </td>
-                                            <td class="text-center">
-                                                <button type="button" class="btn btn-brand btn-xing">
-                                                    View
-                                                </button> 
-                                                <button type="button" class="btn btn-brand btn-css3">
-                                                    Update
-                                                </button>
-                                                <button type="button" class="btn btn-brand btn-spotify">
-                                                    Delete
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-
-                                    </tbody>
                                 </table>
 
 
@@ -62,21 +41,55 @@
     </div>
 @endsection
 
-<script type="text/javascript">
-        $(function(){
-            var table = $('#table').DataTable({
-                processing:true,
-                serverSide:true,
-                ajax: "{{   route('employee.index')   }} ",
-
-                columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'first_name', name: 'first_name'},
-                    {data: 'last_name', name: 'last_name'},
-                    {data: 'city', name: 'city'},
-                    {data: 'action', name: 'action', orderable: false, searchable: false},
-                ]
-
-            });
+{{-- 
+@push('scripts')
+    <script>
+    $(function() {
+        $('#users-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('datatables.data') !!}',
+            columns: [
+                { data: 'id', name: 'id' },
+                { data: 'first_name', name: 'first_name' },
+                { data: 'last_name', name: 'last_name' },
+                { data: 'city', name: 'city' },
+                // // { data: 'email', name: 'email' }
+            ]
         });
-</script>
+    });
+    </script>
+@endpush --}}
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+    $(function() {
+    $('#user_table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax:{
+            url: "{!  route('employee.index')  !}",
+        },
+            columns:[
+                {   data: 'first_name', name: 'first_name' },
+                {   data: 'last_name', name: 'last_name'  },
+                {   data: 'city', name: 'city'          },
+                // {   data: 'action', name: 'action'    }
+            ]
+        });
+    });
+
+
+
+</script> 

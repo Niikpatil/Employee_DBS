@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Employee;
 use Illuminate\Http\Request;
 
-use DataTables;
+use App\Employee;
+// use Datatables;
+
+
 
 class EmployeesController extends Controller
 {
@@ -19,22 +20,46 @@ class EmployeesController extends Controller
 
         if($request->ajax()){
 
-        $employee = Employee::all();
+        return datatables()->of(Employee::latest()->get())
+                    ->addColumn('action', function($data)   {
 
-        return DataTables::of($employee)
-                        ->addIndexColumn()
-                        ->addColumn('action', function($row){
+                        $button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Edit</button>';
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</button>';
+                        return $button;
+                    })
 
-                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-                            return $btn;
+                    ->rawColumns(['action'])
+                    ->make(true);
+                }
+        
+        return view('employee.index');
 
 
-                        })
-                        ->rowColumns(['action'])
-                        ->make(true);
-        }
 
-            return view('employee.index');
+
+
+
+
+
+
+
+        // $employee = Employee::all();
+
+        // return DataTables::of($employee)
+        //                 ->addIndexColumn()
+        //                 ->addColumn('action', function($row){
+
+        //                     $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+        //                     return $btn;
+
+
+        //                 })
+        //                 ->rowColumns(['action'])
+        //                 ->make(true);
+        // }
+
+        //     return view('employee.index');
     }                
 
     /**

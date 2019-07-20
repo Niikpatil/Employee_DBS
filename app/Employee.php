@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    // protected $table = 'bootgrid_data';
+    protected $fillable = ['first_name', 'last_name', 'city'];
 }
