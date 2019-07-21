@@ -11,7 +11,6 @@
     
     <div class="app-body">
         <div class="container">
-
                 <div class="row m-4">
                     <div class=" col-lg-12">
                         <div class="card">
@@ -65,6 +64,12 @@
 
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
+
 
 
 
@@ -79,7 +84,7 @@
         processing: true,
         serverSide: true,
         ajax:{
-            url: "{!  route('employee.index')  !}",
+            url: "{{  route('employee.index')  }}",
         },
             columns:[
                 {   data: 'first_name', name: 'first_name' },
