@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('content')
 
@@ -8,10 +7,9 @@
         <li class="breadcrumb-item"> Dashboard</li>
     </ol>
 
-    
     <div class="app-body">
         <div class="container">
-                <div class="row m-4">
+                <div class="row m-8">
                     <div class=" col-lg-12">
                         <div class="card">
                             <div class="card-header"> Employee Table </div>
@@ -22,9 +20,9 @@
                                     <thead class="table-dark">
                                         <tr>
                                             {{-- <th width="10%">Id</th> --}}
-                                            <th width="30%">First_name</th>
-                                            <th width="25%">Job_Profile</th>
-                                            <th width="25%">Shift</th>
+                                            <th width="40%">First_name</th>
+                                            <th width="40%">Job_Profile</th>
+                                            <th width="35%">Shift</th>
                                             <th  class="text-center">Option</th>
                                         </tr>
                                     </thead>
