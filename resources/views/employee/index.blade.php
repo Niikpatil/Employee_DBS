@@ -9,8 +9,8 @@
 
     <div class="app-body">
         <div class="container">
-                <div class="row m-8">
-                    <div class=" col-lg-12">
+                <div class="row m-6">
+                    <div class="text-center col-lg-12">
                         <div class="card">
                             <div class="card-header"> Employee Table </div>
                             <div class="card-body">
@@ -19,11 +19,10 @@
                                 <table class="table table-responsive-sm" id="user_table">
                                     <thead class="table-dark">
                                         <tr>
-                                            {{-- <th width="10%">Id</th> --}}
-                                            <th width="40%">First_name</th>
-                                            <th width="40%">Job_Profile</th>
-                                            <th width="35%">Shift</th>
-                                            <th  class="text-center">Option</th>
+                                            <th width="5%">First Name</th>
+                                            <th width="5%">Job Profile</th>
+                                            <th width="5%">Shift</th>
+                                            <th width="5%" class="text-center">Option</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -38,44 +37,15 @@
     </div>
 @endsection
 
-{{-- 
-@push('scripts')
-    <script>
-    $(function() {
-        $('#users-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{!! route('datatables.data') !!}',
-            columns: [
-                { data: 'id', name: 'id' },
-                { data: 'first_name', name: 'first_name' },
-                { data: 'last_name', name: 'last_name' },
-                { data: 'city', name: 'city' },
-                // // { data: 'email', name: 'email' }
-            ]
-        });
-    });
-    </script>
-@endpush --}}
 
 
 
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-
-
-
-
-
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script> 
 
 <script>
-
 
     $(function() {
     $('#user_table').DataTable({
@@ -88,11 +58,9 @@
                 {   data: 'first_name', name: 'first_name' },
                 {   data: 'last_name', name: 'last_name'  },
                 {   data: 'city', name: 'city'          },
-                // {   data: 'action', name: 'action'    }
+                {   data: 'action', name: 'action'    },   
             ]
         });
     });
-
-
 
 </script> 
