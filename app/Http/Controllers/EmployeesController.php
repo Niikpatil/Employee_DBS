@@ -60,6 +60,8 @@ class EmployeesController extends Controller
         // }
 
         //     return view('employee.index');
+
+        
     }                
 
     /**
