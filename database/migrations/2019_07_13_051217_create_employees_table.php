@@ -18,9 +18,9 @@ class CreateEmployeesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('image');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('city');
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('city')->nullable();
             $table->timestamps();
         });
     }

@@ -32,7 +32,8 @@
         </div>
     @include('common.footer')
 
-        <!-- Scripts -->
+    <!-- Scripts -->
+    
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- Include the script only on homepage -->
     @if(Request::path() === 'admin')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Employee;
+use Validator;
 // use Datatables;
 
 
@@ -23,7 +24,9 @@ class EmployeesController extends Controller
         return datatables()->of(Employee::latest()->get())
                     ->addColumn('action', function($data)   {
 
-                        $button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Edit</button>';
+                        $button = '<button type="button" name="delete" id="'.$data->id.'" class="view btn btn-info btn-sm">View</button>';
+                        $button .= '&nbsp;&nbsp;';
+                        $button .= '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-primary btn-sm">Edit</button>';
                         $button .= '&nbsp;&nbsp;';
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</button>';
                         return $button;
@@ -32,36 +35,12 @@ class EmployeesController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
                 }
-        
+
         return view('employee.index');
 
 
 
 
-
-
-
-
-
-
-        // $employee = Employee::all();
-
-        // return DataTables::of($employee)
-        //                 ->addIndexColumn()
-        //                 ->addColumn('action', function($row){
-
-        //                     $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-        //                     return $btn;
-
-
-        //                 })
-        //                 ->rowColumns(['action'])
-        //                 ->make(true);
-        // }
-
-        //     return view('employee.index');
-
-        
     }                
 
     /**
@@ -82,11 +61,33 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        // $empdata = $request->validate([
-        //             'first_name' => 'required | min:3',
-        //             'last_name'  => 'required | min:3',
-        //             'gender'     => 'gender | max:7',
-        // ]);
+        $empdata = [
+                    'first_name' => 'required | min:3',
+                    'last_name'  => 'required | min:3',
+                    'image' => 'image|max:2048',
+                    // 'city' => 'required | min:3',
+                ];
+        
+        $error = Validator::make($request->all(), $empdata);
+
+        if($error->fails())
+        {
+            return response()->json([ 'errors' => $error->errors()->all()]);
+        }
+
+        $image = $request->file('image');
+        $new_img =  rand() . '.' . $image->getClientOriginalExtension();
+        $image -> move(public_path('images'), $new_img);
+
+        $form_emp = [
+                        'first_name' => $request->first_name,
+                        'last_name'  => $request->last_name,
+                        'image'      => $new_img
+            ];
+
+        Employee::create($form_emp);
+        
+        return response()->json(['success' => 'Data Added Succesfully.']);
     }
 
     
@@ -109,7 +110,11 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+            if($request->ajax())
+            {
+                $data = Employee::findOrFail($id);
+                return response()->json(['data' => $data]);
+            }
     }
 
     /**
@@ -121,8 +126,49 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $image_name = $request->hidden_image;
+        $image = $request->file('image');
+
+        if($image != '')
+        {
+            $emp_info = [
+                        'first_name' => $request-first_name,
+                        'last_name'  => $request-last_name,
+                        'image'      => $image_name
+                    ];
+            $error = Validator::make($request->all(), $empinfo);
+
+            if($error->fails())
+            {
+                return response()->json(['errors' => $error->errors()->all()]);
+            }
+            $image_name = rand(). '.' .$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+        }
+        else
+        {
+            $emp_info = [
+                        'first_name' => $request-first_name,
+                        'last_name'  => $request-last_name
+                    ];
+
+            $error = Validator::make($request->all(), $empinfo);
+
+            if($error->fails())
+            {
+                return response()->json(['errors' => $error->errors()->all()]);
+            }
+            
+        }
+            $form_info = [
+                            'first_name' => $request-first_name,
+                            'last_name'  => $request-last_name,
+                            'image'      => $image_name                            
+                    ];
+            Employee::whereId($request->hidden_id)->update($form_info);
+        
+        return response()->json(['success' => 'Data is successfully updated']);
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -132,6 +178,7 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Employee::findOrFail($id);
+        $data->delete();
     }
 }
