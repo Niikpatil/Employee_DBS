@@ -124,7 +124,7 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $image_name = $request->hidden_image;
         $image = $request->file('image');
@@ -132,10 +132,18 @@ class EmployeesController extends Controller
         if($image != '')
         {
             $emp_info = [
-                        'first_name' => $request-first_name,
-                        'last_name'  => $request-last_name,
-                        'image'      => $image_name
+                        'first_name' => 'required | min:3',
+                        'last_name'  => 'required | min:3',
+                        'image' => 'required | image|max:2048',
+                        // 'first_name' => $request-first_name,
+                        // 'image'      => $image_name
+                        // 'last_name'  => $request-last_name,
                     ];
+
+
+
+
+
             $error = Validator::make($request->all(), $empinfo);
 
             if($error->fails())

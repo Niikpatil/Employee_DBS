@@ -166,12 +166,54 @@
                             $('#user_table').DataTable().ajax.reload();
                         }
                         $('#form_result').html(html);
-                        
                     }
                 });
             }
+
+        if($('#action').val() == "Edit")
+        {
+            $.ajax({
+                url: "{{ route('employee.update') }}",
+                method: "POST",
+                data: new FormData(this)
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: "json",
+                success:function(data)
+                {
+                    var html = '';
+                    if(data.errors)
+                    {
+                        html = '<div class="alert alert-danger">';
+                        for(var count = 0; count < data.errors.length; count++)
+                        {
+                            html += '<p>' + data.errors[count] + '</p>';
+                        }
+                        html +='</div>';
+                    }
+                    if(data.success)
+                    {
+                        html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#sample_form')[0].reset();
+                        $('#store_image').html('');
+                        $('#user_table').DataTable().ajax.reload();
+                    }
+                    $('#form_result').html(html);
+                }
+            })
+        }
+
+
+
+
+
+
+
+
+
         });
-        
+
     });
     </script>
 
