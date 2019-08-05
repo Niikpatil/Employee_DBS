@@ -43,13 +43,65 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 
-<script>
-    $(function () {
+    <!-- Modal -->
+    <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="AddUserTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-center">Create New User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span id="form_result"></span>
+                    <form method="POST" id="sample_form" class="form-horizontal" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="first_name" class="col-xs-2 col-form-label">First Name</label>
+                                <div class="col-sm-4">
+                                    <input type="text" name="first_name" id="first_name" class="form-control" />
+                                </div>
+                            <label for="last_name" class="col-xs-2 col-form-label">Last Name</label>
+                                <div class="col-sm-4">
+                                    <input type="text" name="last_name" id="last_name" class="form-control" />
+                                </div>
+                        </div><br />
+
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="control-label col-sm-6">Select Profile Image</label>
+                                <input type="file" name="image" id="image">
+                                <span id="store_image"></span>
+                            </div>
+                        </div>
+                        <div class="form-group" align="right">
+                            {{-- <button type="hidden" >Submit</button> --}}
+                            {{-- <button type="hidden" >Submit</button> --}}
+                            <input type="hidden" name="action" id="action" >
+                            <input type="hidden" name="hidden_id" id="hidden_id" >
+                            <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" >
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
+    
+    <script>
+        $(function () {
         $('#user_table').DataTable({
             processing: true,
             serverSide: true,
@@ -76,64 +128,53 @@
                     data: 'action',
                     name: 'action'
                 },
-            ]
+                ]
+            });
+        
+        $('#create_record').click(function(){
+            $('#formModal').modal('show')
         });
+        
+        $('#sample_form').on('submit',function(event){
+            event.preventDefault();
+            if($('#action_button').val()=='Add')
+            {
+                $.ajax({
+                    url: "{{ route('employee.store') }}",
+                    method:"POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache:false,
+                    processData: false,
+                    dataType:"json",
+                    success:function(data)
+                    {
+                        var html = '';
+                        if(data.errors)
+                        {
+                            html = '<div class="alert alert-danger">';
+                            for(var count = 0; count < data.errors.length; count++)
+                            {
+                                html += '<p>' + data.errors[count] + '</p>';
+                            }
+                            html += '</div>';
+                        }
+                        if(data.success)
+                        {
+                            html = '<div class="alert alert-success">' + data.success + '</div>';
+                            $('#sample_form')[0].reset();
+                            $('#user_table').DataTable().ajax.reload();
+                        }
+                        $('#form_result').html(html);
+                        
+                    }
+                });
+            }
+        });
+        
     });
-
-</script>
-
+    </script>
 
 
 
 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="AddUserTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="text-center">Create New User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <span id="form_result"></span>
-                <form method="POST" id="sample_form" class="form-horizontal" enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="form-group row">
-                        <label for="first_name" class="col-xs-2 col-form-label">First Name</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="first_name" id="first_name" class="form-control" />
-                        </div>
-
-                        <label for="last_name" class="col-xs-2 col-form-label">Last Name</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="last_name" id="last_name" class="form-control" />
-                        </div>
-                    </div> <br />
-
-
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6">Select Profile Image</label>
-                            <input type="file" name="image" id="image">
-                            <span id="store_image"></span>
-                        </div>
-                    </div>
-                    <div class="form-group" align="right">
-                        {{-- <button type="hidden" >Submit</button> --}}
-                        {{-- <button type="hidden" >Submit</button> --}}
-                        <input type="hidden" name="action" id="action" >
-                        <input type="hidden" name="hidden_id" id="hidden_id" >
-                        <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" >
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>

@@ -168,6 +168,7 @@ return [
         
         // Package Service For Datatables
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
 
@@ -236,6 +237,7 @@ return [
         // aliases For Datatables
 
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
 
     ],

@@ -64,7 +64,7 @@ class EmployeesController extends Controller
         $empdata = [
                     'first_name' => 'required | min:3',
                     'last_name'  => 'required | min:3',
-                    'image' => 'image|max:2048',
+                    'image' => 'required | image|max:2048',
                     // 'city' => 'required | min:3',
                 ];
         
@@ -149,7 +149,7 @@ class EmployeesController extends Controller
         {
             $emp_info = [
                         'first_name' => $request-first_name,
-                        'last_name'  => $request-last_name
+                        'last_name'  => $request-last_name,
                     ];
 
             $error = Validator::make($request->all(), $empinfo);
