@@ -13,6 +13,8 @@
 
 Route::resource('employee', 'EmployeesController');
 
+Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
+
 
 Route::get('/home', function () {
     return view('layouts.app');

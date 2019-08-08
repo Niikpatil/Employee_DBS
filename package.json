@@ -26,10 +26,10 @@
         "simple-line-icons": "2.4.1"
     },
     "devDependencies": {
-        "@babel/cli": "^7.1.2",
-        "@babel/core": "^7.1.2",
-        "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-        "@babel/preset-env": "^7.1.0",
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
+        "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
         "autoprefixer": "^9.3.1",
         "axios": "^0.19.0",
         "babel-eslint": "^10.0.1",
@@ -42,7 +42,7 @@
         "eslint": "^5.7.0",
         "eslint-plugin-compat": "^2.6.2",
         "foreach-cli": "^1.8.1",
-        "js-beautify": "^1.8.8",
+        "js-beautify": "^1.10.2",
         "laravel-mix": "^2.0.0",
         "node-sass": "^4.9.4",
         "nodemon": "^1.18.4",
@@ -55,6 +55,6 @@
         "stylelint-config-recommended-scss": "^3.2.0",
         "stylelint-config-standard": "^18.2.0",
         "stylelint-order": "^1.0.0",
-        "stylelint-scss": "^3.3.2"
+        "stylelint-scss": "^3.9.3"
     }
 }
