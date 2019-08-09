@@ -123,7 +123,7 @@ class EmployeesController extends Controller
             $emp_info = [
                         'first_name' => 'required | min:3',
                         'last_name'  => 'required | min:3',
-                        'image'      => 'required | image | max:2048',
+                        'image'      => 'required | image | max:2048'
                     ];
             $error = Validator::make($request->all(), $emp_info);
 
@@ -153,8 +153,8 @@ class EmployeesController extends Controller
                             'image'      => $image_name                            
                     ];
             Employee::whereId($request->hidden_id)->update($form_info);
+            
         return response()->json(['success' => 'Data is successfully updated']);
-
     }
 
     /**

@@ -14,7 +14,6 @@
                 <div class="card">
                     <div class="card-header"> Employee Table </div>
                     <div class="card-body">
-
                         <div align="right">
                             <button type="button" name="create_record" id="create_record" class="btn btn-info btn-sm">Create </button>
                         </div> <br />
@@ -124,9 +123,9 @@
                     name: 'action',
                 }
                 ]
-            });
+        });
 
-        $('#create_record').click(function(){
+        $('#create_record').click(function() {
             $('.modal-title').text("Add New User");
             $('#action').val("Add");
             // $('#action_button').val("Add");
@@ -135,73 +134,72 @@
 
         $('#sample_form').on('submit', function(event){
             event.preventDefault();
-            if($('#action').val()=='Add')
-            {
-                $.ajax({
-                    url: "{{ route('employee.store') }}",
-                    method: "POST",
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    dataType:"json",
-                    success:function(data)
+            if($('#action').val()=='Add') {
+            $.ajax({
+                url: "{{ route('employee.store') }}",
+                method: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType:"json",
+                success:function(data)
+                {
+                    var html = '';
+                    if(data.errors)
                     {
-                        var html = '';
-                        if(data.errors)
+                        html = '<div class="alert alert-danger">';
+                        for(var count = 0; count < data.errors.length; count++)
                         {
-                            html = '<div class="alert alert-danger">';
-                            for(var count = 0; count < data.errors.length; count++)
-                            {
-                                html += '<p>' + data.errors[count] + '</p>';
-                            }
-                            html += '</div>';
+                            html += '<p>' + data.errors[count] + '</p>';
                         }
-                        if(data.success)
-                        {
-                            html = '<div class="alert alert-success">' + data.success + '</div>';
-                            $('#sample_form')[0].reset();
-                            $('#user_table').DataTable().ajax.reload();
-                        }
-                        $('#form_result').html(html);
+                        html += '</div>';
                     }
-                });
-            }
+                    if(data.success)
+                    {
+                        html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#sample_form')[0].reset();
+                        $('#user_table').DataTable().ajax.reload();
+                    }
+                    $('#form_result').html(html);
+                }
+            });
+        }
 
-        // if($('#action').val() == "Edit")
-        // {
-        //     $.ajax({
-        //         url: "{{ route('employee.update') }}",
-        //         method: "POST",
-        //         data: new FormData(this),
-        //         contentType: false,
-        //         cache: false,
-        //         processData: false,
-        //         dataType: "json",
-        //         success:function(data)
-        //         {
-        //             var html = '';
-        //             if(data.errors)
-        //             {
-        //                 html = '<div class="alert alert-danger">';
-        //                 for(var count = 0; count < data.errors.length; count++)
-        //                 {
-        //                     html += '<p>' + data.errors[count] + '</p>';
-        //                 }
-        //                 html +='</div>';
-        //             }
-        //             if(data.success)
-        //             {
-        //                 html = '<div class="alert alert-success">' + data.success + '</div>';
-        //                 $('#sample_form')[0].reset();
-        //                 $('#store_image').html('');
-        //                 $('#user_table').DataTable().ajax.reload();
-        //             }
-        //             $('#form_result').html(html);
-        //         }
-        //     });
-        // }
-        });
+        if($('#action').val() == "Edit")
+        {
+            $.ajax({
+                url: "{{ route('employee.update') }}",
+                method: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: "json",
+                success:function(data)
+                {
+                    var html = '';
+                    if(data.errors)
+                    {
+                        html = '<div class="alert alert-danger">';
+                        for(var count = 0; count < data.errors.length; count++)
+                        {
+                            html += '<p>' + data.errors[count] + '</p>';
+                        }
+                        html += '</div>';
+                    }
+                    if(data.success)
+                    {
+                        html = '<div class="alert alert-success">' + data.success + '</div>';
+                        $('#sample_form')[0].reset();
+                        $('#store_image').html('');
+                        $('#user_table').DataTable().ajax.reload();
+                    }
+                    $('#form_result').html(html);
+                }
+            });
+        }
+    });
 
     $(document).on('click','.edit', function(){
         var id = $(this).attr('id');
