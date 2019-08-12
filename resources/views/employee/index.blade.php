@@ -75,6 +75,7 @@
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
                             <input type="submit" name="action_button" id="action_button" class="btn btn-warning" value="Add" />
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
 
                     </form>

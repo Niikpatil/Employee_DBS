@@ -64,7 +64,6 @@ class EmployeesController extends Controller
         {
             return response()->json(['errors' => $error->errors()->all()]);
         }
-
         $image      = $request->file('image');
         $new_img    =  rand() . '.' . $image->getClientOriginalExtension();
         $image -> move(public_path('images'), $new_img);
@@ -74,8 +73,7 @@ class EmployeesController extends Controller
                         'last_name'  => $request->last_name,
                         'image'      => $new_img
                 ];
-                
-            Employee::create($form_emp);
+        Employee::create($form_emp);
         return response()->json(['success' => 'Data Added Succesfully.']);
     }
 
