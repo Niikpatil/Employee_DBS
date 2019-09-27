@@ -11,21 +11,35 @@
 |
 */
 
-Route::resource('employee', 'EmployeesController');
+    Route::resource('employee', 'EmployeesController');
 
-Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
-
-
-Route::get('/home', function () {
-    return view('layouts.app');
-});
+    Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
 
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+    Route::get('/home', function () {
+        return view('layouts.app');
+    });
+
+    Route::get('/admin', function () {
+        return view('admin.index');
+    });
+
+    Route::get('/', function() {
+        return view('dashboard.index');
+    });
 
 
-Route::get('/', function() {
-    return view('dashboard.index');
-});
+    // For Department
+
+    // Route::get('/department', function(){
+    //     return view('organisation_record.departments.home');
+    // });
+
+    Route::resource('/department', 'DepartmentsController');
+    
+    Route::resource('/division', 'DivisionsController');              // Change to Desigantion
+
+    Route::resource('/salaries', 'SalariesController');        
+    Route::resource('/cities', 'CitiesController');
+    Route::resource('/states', 'StatesController');
+    Route::resource('/countries', 'CountriesController');

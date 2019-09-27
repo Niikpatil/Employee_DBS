@@ -20,8 +20,8 @@
                                     <th class="text-center">Option</th>
                                 </tr>
                             </thead>
-                            <tbody>
 
+                            <tbody>
 
                             @foreach ($employee as $emp)
                                 <tr>

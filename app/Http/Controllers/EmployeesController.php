@@ -114,7 +114,7 @@ class EmployeesController extends Controller
     public function update(Request $request)
     {
         $image_name = $request->hidden_image;
-        $image = $request->file('image');
+        $image = $request->file('image');   
 
         if($image != '')
         {
@@ -144,7 +144,7 @@ class EmployeesController extends Controller
             {
                 return response()->json(['errors' => $error->errors()->all()]);
             }
-        }
+        }       
             $form_info = [
                             'first_name' => $request->first_name,
                             'last_name'  => $request->last_name,

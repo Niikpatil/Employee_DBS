@@ -13,7 +13,7 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        //
+        return view("organisation_record.cities.index");
     }
 
     /**

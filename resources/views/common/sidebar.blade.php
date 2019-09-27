@@ -8,32 +8,32 @@
 
         <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-layers"></i>Company details</a>
+                <i class="nav-icon icon-layers"></i>Company details </a>
             <ul class="nav-dropdown-items">
             
-                <li class="nav-item">
-                    <a class="nav-link" href="base/breadcrumb.html">
-                        <i class="nav-icon icon-puzzle"></i> Department</a>
+                <li class="nav-item">   
+                    <a class="nav-link" href="{{ route('department.index') }}">
+                        <i class="nav-icon cui-briefcase"></i> Department</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="base/cards.html">
-                        <i class="nav-icon icon-puzzle"></i> Division</a>
+                        <i class="nav-icon icon-screen-desktop"></i> Division</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('salaries.index') }}">
+                        <i class="nav-icon cui-dollar"></i> Salaries</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="base/carousel.html">
-                        <i class="nav-icon icon-euro"></i>Salaries</a>
+                    <a class="nav-link" href="{{ route('cities.index') }}">
+                        <i class="nav-icon icon-location-pin"></i> City</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="base/collapse.html">
-                        <i class="nav-icon icon-puzzle"></i> City</a>
+                    <a class="nav-link" href="{{ route('states.index') }}">
+                        <i class="nav-icon icon-home"></i> State</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="base/forms.html">
-                        <i class="nav-icon icon-puzzle"></i> State</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="base/forms.html">
-                        <i class="nav-icon icon-puzzle"></i> Country</a>
+                    <a class="nav-link" href="{{ route('countries.index') }}">
+                        <i class="nav-icon icon-globe"></i> Country</a>
                 </li>
                 
             </ul>

@@ -13,7 +13,7 @@ class SalariesController extends Controller
      */
     public function index()
     {
-        //
+        return view('organisation_record.salaries.index');
     }
 
     /**

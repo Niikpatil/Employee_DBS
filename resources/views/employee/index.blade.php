@@ -12,7 +12,7 @@
         <div class="row m-6">
             <div class="text-center col-lg-12">
                 <div class="card">
-                    <div class="card-header"> Employee Table </div>
+                    <div class="card-header"><h5>Employee Details </h5></div>
                     <div class="card-body">
                         <div align="right">
                             <button type="button" name="create_record" id="create_record" class="btn btn-info btn-sm">Create </button>
@@ -55,11 +55,11 @@
                         <div class="form-group row">
                             <label for="first_name" class="col-xs-2 col-form-label">First Name</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="first_name" id="first_name" class="form-control" />
+                                    <input type="text" name="first_name" id="first_name" class="form-control"/>
                                 </div>
                             <label for="last_name" class="col-xs-2 col-form-label">Last Name</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="last_name" id="last_name" class="form-control" />
+                                    <input type="text" name="last_name" id="last_name" class="form-control"/>
                                 </div>
                         </div><br />
 
@@ -70,7 +70,7 @@
                                 <span id="store_image"></span>
                             </div>
                         </div>
-
+                        
                         <div class="form-group" align="right">
                             <input type="hidden" name="action" id="action" />
                             <input type="hidden" name="hidden_id" id="hidden_id" />
@@ -127,10 +127,18 @@
         });
 
         $('#create_record').click(function() {
+            $('#sample_form')[0].reset();
+            $('#user_table').DataTable().ajax.reload();
+
+
             $('.modal-title').text("Add New User");
+            $('#AddUser').modal('show');    
             $('#action').val("Add");
-            // $('#action_button').val("Add");
-            $('#AddUser').modal('show');
+
+
+                // $('#action_button').val("Add");
+                // $('#sample_form')[0].reset();
+                // $('#user_table').DataTable().ajax.reload();
         });
 
         $('#sample_form').on('submit', function(event){
