@@ -23,7 +23,7 @@ class StatesController extends Controller
      */
     public function create()
     {
-        //
+        return view("organisation_record.states.create");
     }
 
     /**

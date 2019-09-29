@@ -23,7 +23,7 @@ class SalariesController extends Controller
      */
     public function create()
     {
-        //
+        return view('organisation_record.salaries.create');
     }
 
     /**

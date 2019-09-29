@@ -23,7 +23,7 @@ class DepartmentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('organisation_record.departments.create');
     }
 
     /**

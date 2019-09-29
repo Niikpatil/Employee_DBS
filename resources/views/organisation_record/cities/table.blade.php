@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <h4>Office Location's</h4>       
                     <div align="right">
-                        <button type="button" class="btn btn-info btn-sm">Create </button>
+                        <a href="{{ route('cities.create') }}" class="btn btn-info" role="button" aria-pressed="true">Create</a>
                     </div> 
                 </div>
 

@@ -23,7 +23,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view("organisation_record.cities.create");
     }
 
     /**
