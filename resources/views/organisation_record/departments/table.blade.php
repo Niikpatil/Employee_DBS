@@ -14,33 +14,21 @@
                     <table class="table table-striped table-responsive-sm">
                         <thead class="table-dark text">
                             <tr>
-                                <th width="1%">ID</th>
+                                {{-- <th width="1%">ID</th> --}}
                                 <th width="2%">Divisions</th>
-                                <th width="5%">Head</th>
-                                <th width="4%">Options</th>
+                                <th width="5%">Head</th>    
+                                <th colspan="2" width="1%">Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>201 </td>
-                                <td>Human Resource</td>
-                                <td>Amit</td>
-                                <td>
-                                    <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp;
-                                    <button type="button" class="edit btn btn-sm btn-primary">Edit</button>&nbsp;&nbsp;
-                                    <button type="button" class="delete btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>801</td>
-                                <td>Developer</td>
-                                <td>Vedansh</td>
-                                <td>
-                                    <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp;
-                                    <button type="button" class="edit btn btn-sm btn-primary">Edit</button>&nbsp;&nbsp;
-                                    <button type="button" class="delete btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                            @foreach ($department as $dept)
+                                <tr>
+                                    <td> {{ $dept->division }} </td>
+                                    <td> {{ $dept->department_head }} </td>
+                                <td > <a class="btn btn-warning" href="department/{{ $dept->id }}/edit">UPDATE</a>  </td>
+                                <td > <a class="btn btn-danger" href="department/{{ $dept->id }}/edit">Delete</a> </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

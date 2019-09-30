@@ -12,15 +12,16 @@
                     </div>
 
                     <div class="card-body">
-                        <form>
+                    <form action="{{ route('department.store') }}" method="POST">
+                            @csrf
                             <div class="form-row col-md-10 text-left">
                                 <div class="form-group col-md-5 offset-md-1">
                                     <label for="Division">Division</label>
-                                    <input type="text" class="form-control" id="Division" placeholder="eg. Human Resources">
+                                    <input type="text" class="form-control" name="division" id="Division" placeholder="eg. Human Resources">
                                 </div>
                                 <div class="form-group col-md-5 offset-md-1">
                                     <label for="HOD">Department Incharge </label>
-                                    <input type="text" class="form-control" id="HOD" placeholder="eg. Mr Borkar">
+                                    <input type="text" class="form-control" name="department_head" id="HOD" placeholder="eg. Mr Borkar">
                                 </div>
                             </div> <br />
                             <button type="submit" class="btn btn-success">Add</button> 

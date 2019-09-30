@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Department;
+
 
 class DepartmentsController extends Controller
 {
@@ -13,7 +15,9 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        return view('organisation_record.departments.index');
+        $department = Department::all();
+
+        return view('organisation_record.departments.index', compact('department'));
     }
 
     /**
@@ -34,7 +38,14 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $department = $request->validate([
+            'division'=>'required',
+            'department_head'=>'required',
+        ]);
+
+        Department::create($department);
+        return redirect('/');
+
     }
 
     /**
@@ -45,7 +56,7 @@ class DepartmentsController extends Controller
      */
     public function show($id)
     {
-        //
+    //   
     }
 
     /**
