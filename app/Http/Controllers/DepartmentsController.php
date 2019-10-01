@@ -8,11 +8,7 @@ use App\Department;
 
 class DepartmentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $department = Department::all();
@@ -20,22 +16,13 @@ class DepartmentsController extends Controller
         return view('organisation_record.departments.index', compact('department'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('organisation_record.departments.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $department = $request->validate([
@@ -44,52 +31,41 @@ class DepartmentsController extends Controller
         ]);
 
         Department::create($department);
-        return redirect('/');
-
+        return redirect('/department');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function show($id)
     {
-    //   
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $dept = Department::findOrFail($id);
+        return view('organisation_record.departments.edit', compact('dept'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        $deptdata = $request->validate([
+            'division'=>'required',
+            'department_head'=>'required',
+        ]);
+
+        Department::whereId($id)->update($deptdata);
+        return redirect('/department');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $dept = Department::findOrFail($id);
+        $dept->delete();
+
+        return redirect('/department');
     }
 }

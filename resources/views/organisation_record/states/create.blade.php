@@ -8,14 +8,15 @@
             <div class="text-center col-lg-8 offset-lg-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Add Countries</h4>
+                        <h4>Add State</h4>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <div class="form-row col-md-10 text-left">
-                                <div class="form-group col-md-4 offset-md-5">
+                        <form action="{{ route('states.store') }}" method="POST">
+                            @csrf
+                            <div class="form-row col-md-10">
+                                <div class="form-group col-md-5 offset-md-5">
                                     <label for="region">State</label>
-                                    <input type="text" class="form-control" id="region" placeholder="eg. Karnataka">
+                                    <input type="text" name="state" placeholder="eg. Karnataka"  class="form-control" id="region">
                                 </div>
                             </div> <br />
                             <button type="submit" class="btn btn-success">Add</button> 

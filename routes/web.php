@@ -37,8 +37,6 @@
 
     Route::resource('/department', 'DepartmentsController');
     
-    // Route::resource('/division', 'DivisionsController');              // Change to Desigantion
-
     Route::resource('/salaries', 'SalariesController');        
     Route::resource('/cities', 'CitiesController');
     Route::resource('/states', 'StatesController');

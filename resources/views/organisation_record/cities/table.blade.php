@@ -21,26 +21,33 @@
                             </tr>
                         </thead>
                         <tbody>
+                        
+                        @foreach ($city as $cities)
+
                             <tr>
-                                <td>425401</td>
-                                <td>Hinjwadi</td>
-                                <td>Pune</td>
+                                <td>{{ $cities->pincode }}</td>
+                                <td>{{ $cities->area }}</td>
+                                <td>{{ $cities->city }}</td>
                                 <td>
-                                    <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp;
-                                    <button type="button" class="edit btn btn-sm btn-primary">Edit</button>&nbsp;&nbsp;
-                                    <button type="button" class="delete btn btn-sm btn-danger">Delete</button>
+                                    <a class="btn btn-sm btn-warning" href="cities/{{ $cities->id }}/edit">UPDATE</a>
+                                    {{-- <a class="btn btn-sm btn-danger" href="#">UPDATE</a> --}}
+
+
+                                    <div class="btn">
+                                        <form action="/cities/{{ $cities->id }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+
+
+
+
                                 </td>
                             </tr>
-                            <tr>
-                                <td>590383</td>
-                                <td>Andheri West</td>
-                                <td>Mumbai</td>
-                                <td>
-                                    <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp;
-                                    <button type="button" class="edit btn btn-sm btn-primary">Edit</button>&nbsp;&nbsp;
-                                    <button type="button" class="delete btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                            
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
