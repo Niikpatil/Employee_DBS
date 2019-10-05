@@ -3,8 +3,7 @@
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item"> Company Info </li>
-    <li class="breadcrumb-item active">Countries</li>
+    <li class="breadcrumb-item">Countries</li>
 </ol>
 
 

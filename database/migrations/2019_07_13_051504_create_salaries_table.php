@@ -15,6 +15,8 @@ class CreateSalariesTable extends Migration
     {
         Schema::create('salaries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('role');
+            $table->integer('pay');
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
     <div class="animated fadeIn">
 
     <div class="row m-4">
-        <div class="text-center col-lg-12">
+        <div class="text-center col-lg-10 offset-1">
             <div class="card">
                 <div class="card-header">
                     <h4>Financial Accounts</h4>       
@@ -14,43 +14,34 @@
                     <table class="table table-striped table-responsive-sm">
                         <thead class="table-dark text">
                             <tr>
-                                <th width="1%">Emp_ID</th>
                                 <th width="2%">Role</th>
                                 <th width="5%">Monthly Salaries</th>
                                 <th width="4%">Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>201 </td>
-                                <td>Human Resource</td>
-                                <td>16399</td>
-                                <td>
-                                    <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp;
-                                    <button type="button" class="edit btn btn-sm btn-primary">Edit</button>&nbsp;&nbsp;
-                                    <button type="button" class="delete btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>501</td>
-                                <td>Web Developer</td>
-                                <td>25000</td>
-                                <td>
-                                    <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp;
-                                    <button type="button" class="edit btn btn-sm btn-primary">Edit</button>&nbsp;&nbsp;
-                                    <button type="button" class="delete btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>801</td>
-                                <td>Network Admin</td>
-                                <td>22000</td>
-                                <td>
-                                    <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp;
-                                    <button type="button" class="edit btn btn-sm btn-primary">Edit</button>&nbsp;&nbsp;
-                                    <button type="button" class="delete btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                            @foreach ($sal as $salary)
+                            
+                            
+                            
+                                <tr>
+                                    <td>{{ $salary->pay}}</td>
+                                    <td>{{ $salary->role}}</td>
+                                    <td>
+                                        {{-- <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp; --}}
+                                        <a href="/salaries/{{$salary->id}}/edit"  class="edit btn btn-sm btn-secondary">Edit</a>&nbsp;
+                                        <div class="btn">
+                                            <form action="/salaries/{{$salary->id}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="delete btn btn-sm btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            
+                            @endforeach
+                        
                         </tbody>
                     </table>
                 </div>

@@ -41,10 +41,10 @@
 
     <!-- Modal -->
     <div id="AddUser" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog  modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add New Record</h4>
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold ">Add New Record</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -53,14 +53,14 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="first_name" class="col-xs-2 col-form-label">First Name</label>
-                                <div class="col-sm-4">
+                            <div class="col-md-3 offset-sm-1">
+                                <label for="first_name" class="col-xs-2 col-form-label">First Name</label>
                                     <input type="text" name="first_name" id="first_name" class="form-control"/>
-                                </div>
-                            <label for="last_name" class="col-xs-2 col-form-label">Last Name</label>
-                                <div class="col-sm-4">
-                                    <input type="text" name="last_name" id="last_name" class="form-control"/>
-                                </div>
+                            </div>
+                            <div class="col-md-3 offset-sm-1">
+                                <label for="last_name" class="col-xs-2 col-form-label">Last Name</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control"/>
+                            </div>
                         </div><br />
 
                         <div class="form-group">

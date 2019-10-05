@@ -1,7 +1,7 @@
     <div class="animated fadeIn">
 
         <div class="row m-4">
-            <div class="text-center col-lg-12">
+            <div class="text-center col-md-10 offset-1">
                 <div class="card">
                     <div class="card-header">
                         <h4>Departments</h4>
