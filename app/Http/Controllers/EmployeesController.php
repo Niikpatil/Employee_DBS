@@ -22,7 +22,7 @@ class EmployeesController extends Controller
                 return datatables()->of(Employee::latest()->get())
                     ->addColumn('action', function($data)   
                     {
-                        $button = '<button type="button" name="edit" id="'.$data->id.'" class="view btn btn-sm btn-secondary">View</button>';
+                        $button = '<button type="button" name="view" id="'.$data->id.'" class="view btn btn-sm btn-secondary">View</button>';
                         $button .= '&nbsp;&nbsp;';
                         $button .= '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-sm btn-primary">Edit</button>';
                         $button .= '&nbsp;&nbsp;';
@@ -84,9 +84,13 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()  
+    public function show($id)  
     {
-        //
+            // if(request()->ajax())
+            // {
+            //     $data = Employee::findOrFail($id);
+            //     return response()->json(['data' => $data]);
+            // }
     }
 
     /**

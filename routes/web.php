@@ -15,6 +15,10 @@
 
     Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
 
+    Route::get('employee/destroy/{id}', 'EmployeesController@destroy');
+
+
+
 
     Route::get('/home', function () {
         return view('layouts.app');
