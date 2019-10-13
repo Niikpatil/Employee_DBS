@@ -11,9 +11,8 @@
 |
 */
 
-    Route::resource('employee', 'EmployeesController');
 
-    Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
+    // Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
 
 
     Route::get('/home', function () {
@@ -29,15 +28,14 @@
     });
 
 
+
+    Route::resource('/employee', 'EmployeesController');
+
+
+
     // For Department
-
-    // Route::get('/department', function(){
-    //     return view('organisation_record.departments.home');
-    // });
-
     Route::resource('/department', 'DepartmentsController');
-    
-    Route::resource('/salaries', 'SalariesController');        
+    Route::resource('/salaries', 'SalariesController');
     Route::resource('/cities', 'CitiesController');
     Route::resource('/states', 'StatesController');
     Route::resource('/countries', 'CountriesController');
