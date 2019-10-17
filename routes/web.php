@@ -32,7 +32,6 @@
     Route::resource('/employee', 'EmployeesController');
 
 
-
     // For Department
     Route::resource('/department', 'DepartmentsController');
     Route::resource('/salaries', 'SalariesController');

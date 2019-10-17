@@ -11,9 +11,6 @@
     <title>Employee Management</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-
 
 </head>
 
@@ -33,7 +30,7 @@
     @include('common.footer')
 
     <!-- Scripts -->
-    
+
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- Include the script only on homepage -->
     @if(Request::path() === 'admin')
