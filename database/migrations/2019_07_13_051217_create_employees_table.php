@@ -17,10 +17,25 @@ class CreateEmployeesTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('image');
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('city')->nullable();
+            $table->string('contact');
+            $table->string('email');
+            $table->string('image')->nullable();
+
+
+            $table->date('join_date')->nullable();
+            $table->date('birth_date')->nullable();
+
+
+            $table->integer('city_id')->unsigned();
+            $table->integer('country_id')->unsigned();
+            $table->integer('state_id')->unsigned();
+            $table->integer('division_id')->unsigned();
+            $table->integer('role_id')->unsigned();
+
+
+            $table->integer('gender_id')->unsigned();
+
+
             $table->timestamps();
         });
     }

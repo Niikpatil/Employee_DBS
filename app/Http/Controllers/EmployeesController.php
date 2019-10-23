@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Department;
+use App\City;
+use App\State;
+use App\Country;
+use App\Salary;
+// use App\Gender;
 
 
 
@@ -25,7 +31,20 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        return view('employee.create'); 
+        $division = Department::orderBy('division', 'asc')->get();
+        $state = State::orderBy('state', 'asc')->get();
+        $city = City::orderBy('city', 'asc')->get();
+        $country = Country::orderBy('nation', 'asc')->get();
+        $salary = Salary::orderBy('pay', 'asc')->get();
+        // $genders = Gender::orderBy('')->get();
+
+        return view('employee.create')->with([
+                'division'  =>  $division,
+                'states'   => $state,
+                'cities'   => $city,
+                'countries'   => $country,
+                'salaries'   => $salary,
+        ]); 
     }
 
     /**

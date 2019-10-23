@@ -32,18 +32,11 @@
                             </div> <br />
 
                             <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-6 offset-sm-2">
+                                <div class="form-group col-sm-4 offset-sm-2">
                                     <label for="email">eMail</label>
                                     <input type="text" name="email" placeholder="titan@gmail.com"  class="form-control" id="fname" >
                                 </div>
-                            </div> <br />
-
-                            <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">
-                                    <label for="division">Division</label>
-                                    <input type="text" name="division" placeholder="Human resources"  class="form-control" id="division" >
-                                </div>
-                                <div class="form-group col-sm-4 offset-sm-1">
+                                <div class="form-group col-sm-3 offset-sm-1">
                                     <label for="contact">Contact</label>
                                     <input type="text" name="contact" placeholder="+91 9483975483"  class="form-control" id="contact" >
                                 </div>
@@ -51,21 +44,57 @@
 
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
+                                    <label for="division">Division</label>
+                                    <select class="form-control" name="city">
+                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>Department</option>
+                                        @foreach($division as $div)
+                                            <option value="{{$div->id}}" {{ old('div') ? 'selected' : '' }} >{{$div->division}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-4 offset-sm-1">
+                                    <label for="role">Designation</label>
+                                    <select class="form-control" name="city">
+                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>Work Role</option>
+                                        @foreach($salaries as $sal)
+                                            <option value="{{$sal->id}}" {{ old('sal') ? 'selected' : '' }} >{{$sal->role}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div> <br />
+
+                            <div class="form-row col-md-11 text-left">
+                                <div class="form-group col-sm-4 offset-sm-2">   
                                     <label for="state">State</label>
-                                    <input type="text" name="state" placeholder="Karnataka"  class="form-control" id="state" >
+                                    <select class="form-control" name="city">
+                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>State Select</option>
+                                        @foreach($states as $state)
+                                            <option value="{{$state->id}}" {{ old('state') ? 'selected' : '' }} >{{$state->state}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group col-sm-4 offset-sm-1">
                                     <label for="city">City</label>
-                                    <input type="text" name="city" placeholder="Bengluru"  class="form-control" id="city" >
+                                    <select class="form-control" name="city">
+                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>City Select</option>
+                                        @foreach($cities as $city)
+                                            <option value="{{$city->id}}" {{ old('city') ? 'selected' : '' }} >{{$city->city}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div> <br />
 
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
                                     <label for="fname">Country</label>
-                                    <input type="text" name="nation" placeholder="india"  class="form-control" id="fname" >
+                                    <select class="form-control" name="city">
+                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>Country Select</option>
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->id}}" {{ old('country') ? 'selected' : '' }} >{{$country->nation}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <div class="form-group col-sm-4 offset-sm-1">
+                                {{-- <div class="form-group col-sm-4 offset-sm-1">
                                     <label for="fname">Gender</label>
                                     <div class="custom-control custom-radio">
                                         <input class="custom-control-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -75,9 +104,9 @@
                                         <input class="custom-control-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                                         <label class="custom-control-label" for="inlineRadio2">Female</label>
                                     </div>  
-                                </div>
+                                </div> --}}
                             </div> <br />
-
+{{-- 
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
                                     <label for="dob">Date Of Birth</label>
@@ -96,7 +125,7 @@
                                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                 </div>
-                            </div> <br />
+                            </div> <br /> --}}
 
                             <button type="submit" class="btn btn-success">Add</button> 
                         </form>
