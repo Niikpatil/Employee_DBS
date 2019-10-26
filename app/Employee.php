@@ -3,8 +3,43 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Employee extends Model
 {
-    protected $fillable = ['first_name', 'last_name', 'image'];
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
+
+    public function empDepartment()
+    {
+        return $this->belongsTo('App\Department', 'division_id');
+    }
+
+
+    public function empSalary()
+    {
+        return $this->belongsTo('App\Salary', 'role_id');
+    }
+
+
+    public function empState()
+    {
+        return $this->belongsTo('App\State', 'state_id');
+    }
+
+
+    public function empCity()
+    {
+        return $this->belongsTo('App\City', 'city_id');
+    }
+
+
+    public function empCountry()
+    {
+        return $this->belongsTo('App\Country', 'country_id');
+    }
+
+
 }

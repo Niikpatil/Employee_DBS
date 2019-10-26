@@ -31,19 +31,19 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        $division = Department::orderBy('division', 'asc')->get();
-        $state = State::orderBy('state', 'asc')->get();
-        $city = City::orderBy('city', 'asc')->get();
-        $country = Country::orderBy('nation', 'asc')->get();
-        $salary = Salary::orderBy('pay', 'asc')->get();
+        $departments = Department::orderBy('division', 'asc')->get();
+        $states = State::orderBy('state', 'asc')->get();
+        $cities = City::orderBy('city', 'asc')->get();
+        $countries = Country::orderBy('nation', 'asc')->get();
+        $salaries = Salary::orderBy('pay', 'asc')->get();
         // $genders = Gender::orderBy('')->get();
 
         return view('employee.create')->with([
-                'division'  =>  $division,
-                'states'   => $state,
-                'cities'   => $city,
-                'countries'   => $country,
-                'salaries'   => $salary,
+                'division'  =>  $departments,
+                'states'   => $states,
+                'cities'   => $cities,
+                'countries'   => $countries,
+                'salaries'   => $salaries,
         ]); 
     }
 
