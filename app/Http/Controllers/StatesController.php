@@ -24,11 +24,11 @@ class StatesController extends Controller
 
     public function store(Request $request)
     {
-        $states = $request->validate([
-            'state' => 'required|min:3'
+        $state = $request->validate([
+            'state_name' => 'required|min:3'
         ]);
         
-        State::Create($states);
+        State::Create($state);
         return redirect('/states');
     }
 
@@ -41,16 +41,16 @@ class StatesController extends Controller
 
     public function edit($id)
     {
-        $region = State::findOrFail($id);
+        $state = State::findOrFail($id);
 
-        return view('organisation_record.states.edit', compact('region'));
+        return view('organisation_record.states.edit', compact('state'));
     }
 
 
     public function update(Request $request, $id)
     {
         $states = $request->validate([
-            'state' => 'required|min:3'
+            'state_name' => 'required|min:3'
         ]);
 
         State::whereId($id)->update($states);
@@ -62,7 +62,6 @@ class StatesController extends Controller
     {
         $state = State::findOrFail($id);
         $state->delete();
-
         return redirect('/states');
         
     }

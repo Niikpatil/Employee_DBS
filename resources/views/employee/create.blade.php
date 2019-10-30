@@ -68,7 +68,7 @@
                                     <label for="state">State</label>
                                     <select class="form-control" name="city">
                                         <option value="" disabled {{ old('city') ? '' : 'selected' }}>State Select</option>
-                                        @foreach($states as $state)
+                                        @foreach($state_name as $state)
                                             <option value="{{$state->id}}" {{ old('state') ? 'selected' : '' }} >{{$state->state}}</option>
                                         @endforeach
                                     </select>

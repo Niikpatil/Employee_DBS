@@ -27,7 +27,7 @@ class CitiesController extends Controller
         $city = $request->validate([
             'area' => 'required',
             'city' => 'required',
-            'pincode' => 'required',
+            'pincode' => 'required'
         ]);
 
         City::Create($city);

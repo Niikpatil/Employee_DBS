@@ -21,8 +21,8 @@
                             @csrf
                             <div class="form-row col-md-10">
                                 <div class="form-group col-md-5 offset-md-5">
-                                    <label for="region">State</label>
-                                    <input type="text" name="state" placeholder="eg. Karnataka"  class="form-control" id="region">
+                                    <label for="state">State</label>
+                                    <input type="text" name="state_name" placeholder="eg. Karnataka"  class="form-control" id="state">
                                 </div>
                             </div> <br />
                             <button type="submit" class="btn btn-success">Add</button> 
