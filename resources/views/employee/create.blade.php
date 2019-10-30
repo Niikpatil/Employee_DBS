@@ -23,11 +23,11 @@
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
                                     <label for="fname">First Name</label>
-                                    <input type="text" name="fname" placeholder="donald"  class="form-control" id="fname" >
+                                    <input type="text" name="first_name" placeholder="donald"  class="form-control" id="fname" >
                                 </div>
                                 <div class="form-group col-sm-4 offset-sm-1">
                                     <label for="lname">Last Name</label>
-                                    <input type="text" name="lname" placeholder="trump"  class="form-control" id="lname" >
+                                    <input type="text" name="last_name" placeholder="trump"  class="form-control" id="lname" >
                                 </div>
                             </div> <br />
 
@@ -45,8 +45,8 @@
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
                                     <label for="division">Division</label>
-                                    <select class="form-control" name="city">
-                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>Department</option>
+                                    <select class="form-control" name="division">
+                                        <option value="division" disabled {{ old('division') ? '' : 'selected' }}>Department</option>
                                         @foreach($division as $div)
                                             <option value="{{$div->id}}" {{ old('div') ? 'selected' : '' }} >{{$div->division}}</option>
                                         @endforeach
@@ -54,8 +54,8 @@
                                 </div>
                                 <div class="form-group col-sm-4 offset-sm-1">
                                     <label for="role">Designation</label>
-                                    <select class="form-control" name="city">
-                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>Work Role</option>
+                                    <select class="form-control" name="role">
+                                        <option value="role" disabled {{ old('role') ? '' : 'selected' }}>Work Role</option>
                                         @foreach($salaries as $sal)
                                             <option value="{{$sal->id}}" {{ old('sal') ? 'selected' : '' }} >{{$sal->role}}</option>
                                         @endforeach
@@ -66,8 +66,8 @@
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">   
                                     <label for="state">State</label>
-                                    <select class="form-control" name="city">
-                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>State Select</option>
+                                    <select class="form-control" name="state">
+                                        <option value="state" disabled {{ old('state') ? '' : 'selected' }}>State Select</option>
                                         @foreach($state_name as $state)
                                             <option value="{{$state->id}}" {{ old('state') ? 'selected' : '' }} >{{$state->state}}</option>
                                         @endforeach
@@ -76,7 +76,7 @@
                                 <div class="form-group col-sm-4 offset-sm-1">
                                     <label for="city">City</label>
                                     <select class="form-control" name="city">
-                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>City Select</option>
+                                        <option value="city" disabled {{ old('city') ? '' : 'selected' }}>City Select</option>
                                         @foreach($cities as $city)
                                             <option value="{{$city->id}}" {{ old('city') ? 'selected' : '' }} >{{$city->city}}</option>
                                         @endforeach
@@ -87,8 +87,8 @@
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
                                     <label for="fname">Country</label>
-                                    <select class="form-control" name="city">
-                                        <option value="" disabled {{ old('city') ? '' : 'selected' }}>Country Select</option>
+                                    <select class="form-control" name="country">
+                                        <option value="country" disabled {{ old('country') ? '' : 'selected' }}>Country Select</option>
                                         @foreach($countries as $country)
                                             <option value="{{$country->id}}" {{ old('country') ? 'selected' : '' }} >{{$country->nation}}</option>
                                         @endforeach

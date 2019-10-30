@@ -32,6 +32,7 @@ class EmployeesController extends Controller
      */
     public function create()
     {
+
         $departments = Department::orderBy('division', 'asc')->get();
         $states = State::orderBy('state_name', 'asc')->get();
         $cities = City::orderBy('city', 'asc')->get();
@@ -56,7 +57,22 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+        $emp_data = $request->validate([
+            'first_name' => 'required | min:3 | max:20',
+            'last_name'  => 'required | min:3 | max:20',
+            'email' => 'required',
+            'contact' => 'required',
+
+
+            'division' => 'required',
+            'role' => 'required',
+            'state' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+        ]);
+
+        Employee::create($emp_data);
     }
 
     

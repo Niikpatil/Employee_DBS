@@ -17,8 +17,8 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('contact');
             $table->string('email');
+            $table->string('contact');
             $table->string('image')->nullable();
             $table->date('join_date')->nullable();
             $table->date('birth_date')->nullable();
@@ -26,6 +26,7 @@ class CreateEmployeesTable extends Migration
 
             // $table->integer('role_id');
             $table->integer('dept_id')->unsigned();
+            $table->integer('role_id')->unsigned();
             $table->integer('state_id')->unsigned();
             $table->integer('city_id')->unsigned();
             $table->integer('country_id')->unsigned();
@@ -33,10 +34,9 @@ class CreateEmployeesTable extends Migration
 
 
 
-
-
             // $table->foreign('role_id')->references('id')->on('salaries');
             $table->foreign('dept_id')->references('id')->on('departments');
+            $table->foreign('role_id')->references('id')->on('salaries');
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('country_id')->references('id')->on('countries');
