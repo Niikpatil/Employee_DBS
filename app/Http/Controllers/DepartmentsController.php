@@ -25,18 +25,17 @@ class DepartmentsController extends Controller
 
     public function store(Request $request)
     {
+
         $department = $request->validate([
             'division'=>'required',
             'department_head'=>'required',
         ]);
 
-        // Department::create($department);
-        
         $department = new Department();
-        
         $department->division = $request->input('division');
+        $department->department_head = $request->input('department_head');
 
-
+        $department->save();
         return redirect('/department');
     }
 

@@ -22,7 +22,7 @@
                             <tbody>
                                 @foreach ($state as $states)
                                     <tr>
-                                        <td>{{ $states->state }}</td>
+                                        <td class="font-weight-bolder"> {{ $states->state_name }}</td>
                                         <td>
                                             <a href="/states/{{ $states->id }}/edit" class="btn btn-sm btn-secondary">Update</a>&nbsp;&nbsp;
                                             <div class="btn">

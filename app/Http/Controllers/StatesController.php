@@ -27,8 +27,10 @@ class StatesController extends Controller
         $state = $request->validate([
             'state_name' => 'required|min:3'
         ]);
-        
-        State::Create($state);
+
+        $state = new State();
+        $state->state_name = $request->input('state_name');
+        $state->save();
         return redirect('/states');
     }
 

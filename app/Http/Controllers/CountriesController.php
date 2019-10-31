@@ -27,11 +27,14 @@ class CountriesController extends Controller
     
     public function store(Request $request)
     {
+
         $nation = $request->validate([
             'nation' => 'required|min:5',
         ]);
 
-        Country::create($nation);
+        $nation = new Country();
+                $nation->nation  =   $request->input('nation');
+                $nation->save();
         return redirect('/countries');
     }
 

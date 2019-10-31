@@ -30,7 +30,15 @@ class CitiesController extends Controller
             'pincode' => 'required'
         ]);
 
-        City::Create($city);
+        // City::Create($city);
+
+
+        $city = new City();
+        
+        $city->area = $request->input('area');
+        $city->city = $request->input('city');
+        $city->pincode = $request->input('pincode');
+        $city->save();
         return redirect('/cities');
 
     }

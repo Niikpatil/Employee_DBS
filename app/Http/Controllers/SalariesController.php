@@ -27,11 +27,15 @@ class SalariesController extends Controller
     public function store(Request $request)
     {
         $sal = $request->validate([
-            'pay'  =>  'required',
+            'pay'   =>  'required',
             'role'  =>  'required',
         ]);
 
-        Salary::Create($sal);
+        $sal = new Salary();
+        $sal->pay   = $request->input('pay');
+        $sal->role  = $request->input('role');
+        $sal->save();
+
         return redirect('/salaries');
     }
 

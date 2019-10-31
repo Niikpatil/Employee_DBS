@@ -22,7 +22,7 @@
                         <tbody>
                             @foreach ($nation as $nations)
                                 <tr>
-                                    <td>{{ $nations->nation }}</td>
+                                    <td class="font-weight-bolder">{{ $nations->nation }}</td>
                                     <td>
                                         <a href="/countries/{{ $nations->id }}/edit" class="edit btn btn-sm btn-primary">Update</a>&nbsp;
                                         <div class="btn">

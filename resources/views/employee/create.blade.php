@@ -66,10 +66,10 @@
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">   
                                     <label for="state">State</label>
-                                    <select class="form-control" name="state">
-                                        <option value="state" disabled {{ old('state') ? '' : 'selected' }}>State Select</option>
+                                    <select class="form-control" name="state_name">
+                                        <option value="state_name" disabled {{ old('state_name') ? '' : 'selected' }}>State Select</option>
                                         @foreach($state_name as $state)
-                                            <option value="{{$state->id}}" {{ old('state') ? 'selected' : '' }} >{{$state->state}}</option>
+                                            <option value="{{$state->id}}" {{ old('state') ? 'selected' : '' }} >{{$state->state_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
