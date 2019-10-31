@@ -30,7 +30,13 @@ class DepartmentsController extends Controller
             'department_head'=>'required',
         ]);
 
-        Department::create($department);
+        // Department::create($department);
+        
+        $department = new Department();
+        
+        $department->division = $request->input('division');
+
+
         return redirect('/department');
     }
 

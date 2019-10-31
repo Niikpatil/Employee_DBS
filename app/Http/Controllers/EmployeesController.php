@@ -61,18 +61,32 @@ class EmployeesController extends Controller
         $emp_data = $request->validate([
             'first_name' => 'required | min:3 | max:20',
             'last_name'  => 'required | min:3 | max:20',
-            'email' => 'required',
-            'contact' => 'required',
+            'email'      => 'required',
+            'contact'    => 'required',
 
 
-            'division' => 'required',
-            'role' => 'required',
-            'state' => 'required',
-            'city' => 'required',
-            'country' => 'required',
+            'division'  => 'required',
+            'role'      => 'required',
+            'state'     => 'required',
+            'city'      => 'required',
+            'country'   => 'required',
         ]);
 
-        Employee::create($emp_data);
+
+        $emp_data = new Employee();
+
+        $emp_data ->first_name  = $request->input('first_name');
+        $emp_data ->last_name   = $request->input('last_name');
+        $emp_data ->email       = $request->input('email');
+        $emp_data ->contact     = $request->input('contact');
+        $emp_data ->dept_id    = $request->input('division');
+        $emp_data ->role_id        = $request->input('role');
+        $emp_data ->state_id       = $request->input('state');
+        $emp_data ->city_id        = $request->input('city');
+        $emp_data ->country_id     = $request->input('country');
+
+        $emp_data->save();
+
     }
 
     
