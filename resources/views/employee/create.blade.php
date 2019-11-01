@@ -104,7 +104,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div> <br />
+                            </div> <br /><br /><br />
 {{-- 
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
@@ -116,6 +116,7 @@
                                     <input type="text" placeholder="22-may-2019"  class="form-control" id="doj" disabled>
                                 </div>
                             </div> <br />
+                            --}}
 
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
@@ -124,7 +125,7 @@
                                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                 </div>
-                            </div> <br /> --}}
+                            </div> <br /> 
 
                             <button type="submit" class="btn btn-success">Add</button> 
                         </form>
