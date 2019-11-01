@@ -40,6 +40,7 @@ class CreateEmployeesTable extends Migration
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('gender_id')->references('id')->on('genders');
 
 
             $table->timestamps();

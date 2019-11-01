@@ -10,7 +10,7 @@
 <div class="app-body">
     <div class="container">
 
-        <div class="row ">
+        <div class="row">
             <div class="text-center col-md-10 offset-md-1">
                 <div class="card">
                     <div class="card-header">
@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action=" " method="POST">
+                        <form action="{{ route('employee.store') }}" method="POST">
                             @csrf
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
@@ -94,17 +94,16 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                {{-- <div class="form-group col-sm-4 offset-sm-1">
+
+                                <div class="form-group col-sm-2 offset-sm-1">
                                     <label for="fname">Gender</label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="custom-control-label" for="inlineRadio1">Male</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="custom-control-label" for="inlineRadio2">Female</label>
-                                    </div>  
-                                </div> --}}
+                                    <select class="form-control" name="gender_name">
+                                        <option value="gender_name" disabled {{ old('gender_name') ? '' : 'selected' }}>Select</option>
+                                        @foreach($gender_name as $gender)
+                                            <option value="{{$gender->id}}" {{ old('gender') ? 'selected' : '' }} >{{$gender->gender_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div> <br />
 {{-- 
                             <div class="form-row col-md-11 text-left">

@@ -41,5 +41,10 @@ class Employee extends Model
         return $this->belongsTo('App\Country', 'country_id');
     }
 
+    public function empGender()
+    {
+        return $this->belongsTo('App\Gender', 'gender_id');
+    }
+
 
 }

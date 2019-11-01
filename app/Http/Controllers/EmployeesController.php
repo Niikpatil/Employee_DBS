@@ -8,8 +8,8 @@ use App\Country;
 use App\City;
 use App\State;
 use App\Salary;
+use App\Gender;
 use DB;
-// use App\Gender;
 
 
 
@@ -38,14 +38,15 @@ class EmployeesController extends Controller
         $cities = City::orderBy('city', 'asc')->get();
         $countries = Country::orderBy('nation', 'asc')->get();
         $salaries = Salary::orderBy('pay', 'asc')->get();
-        // $genders = Gender::orderBy('')->get();
+        $genders = Gender::orderBy('gender_name', 'desc')->get();
 
         return view('employee.create')->with([
-                'division'    =>    $departments,
-                'state_name'  =>    $states,
-                'cities'      =>    $cities,
-                'countries'   =>    $countries,
-                'salaries'    =>    $salaries,
+                'division'     =>   $departments,
+                'state_name'   =>   $states,
+                'cities'       =>   $cities,
+                'countries'    =>   $countries,
+                'salaries'     =>   $salaries,
+                'gender_name'  =>   $genders,
         ]); 
     }
 
@@ -69,20 +70,24 @@ class EmployeesController extends Controller
             'state_name'  => 'required',
             'city'        => 'required',
             'country'     => 'required',
+            'gender_name' => 'required',
         ]);
 
         $emp_data = new Employee();
-        $emp_data ->first_name  = $request->input('first_name');
-        $emp_data ->last_name   = $request->input('last_name');
-        $emp_data ->email       = $request->input('email');
-        $emp_data ->contact     = $request->input('contact');
-        $emp_data ->dept_id     = $request->input('division');
-        $emp_data ->role_id     = $request->input('role');
-        $emp_data ->state_id    = $request->input('state_name');
-        $emp_data ->city_id     = $request->input('city');
-        $emp_data ->country_id  = $request->input('country');
 
+        $emp_data->first_name  = $request->input('first_name');
+        $emp_data->last_name   = $request->input('last_name');
+        $emp_data->email       = $request->input('email');
+        $emp_data->contact     = $request->input('contact');
+        $emp_data->dept_id     = $request->input('division');
+        $emp_data->role_id     = $request->input('role');
+        $emp_data->state_id    = $request->input('state_name');
+        $emp_data->city_id     = $request->input('city');
+        $emp_data->country_id  = $request->input('country');
+        $emp_data->gender_id   = $request->input('gender_name');
         $emp_data->save();
+
+        return redirect('/employee');
     }
 
     
