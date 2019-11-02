@@ -88,6 +88,34 @@ class EmployeesController extends Controller
         $emp_data->save();
 
         return redirect('/employee');
+
+
+
+
+
+        if($request->hasFile('pic'))
+        {
+            // To Get file full name (With extention)
+            $file_fullname = $request->file('pic')->getClientOriginalName();
+
+            // To Get just file name
+            $f_extention = $request->pathInfo($fileName,PATHINFO_FILENAME );
+
+            // To Get just file extention
+            $file_name = $request->file('pic')->getClientOriginalName();
+
+            // To append the timpstamp within file name
+            $newfile = $file_fullname.'_'.time().'_'.$f_extention;
+
+            
+        }
+
+
+
+
+
+
+        
     }
 
     
