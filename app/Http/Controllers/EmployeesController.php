@@ -22,7 +22,15 @@ class EmployeesController extends Controller
      */
     public function index(Request $request)
     {
-        return view('employee.index');
+        $emp_data = Employee::all();
+        $departments = Department::orderBy('division', 'asc')->get();
+
+        return view('employee.index')->with([
+                'emp_data' =>  $emp_data,
+                // 'division' =>   $departments,
+
+        ]);
+
     }                
 
     /**
@@ -162,6 +170,6 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-
+        
     }
 }

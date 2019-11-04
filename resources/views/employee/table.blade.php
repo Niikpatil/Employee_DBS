@@ -4,7 +4,7 @@
         <div class="text-center col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Countries</h4>       
+                    <h4>Employee details</h4>       
                     <div align="right">
                         <a href="{{ route('employee.create') }}" class="btn btn-info" role="button" aria-pressed="true">Create</a>
                     </div> 
@@ -13,30 +13,32 @@
                     <table class="table table-striped table-responsive-sm">
                         <thead class="table-dark text">
                             <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
+                                <th width="2%">Image</th>
+                                <th width="5%">Name</th>
+                                <th width="2%">Role</th>
+                                <th width="3%">Option</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr>
-                                <td>Derick Maximinus</td>
-                                <td>2012/03/01</td>
-                                <td>Member</td>
-                                <td>
-                                    <span class="badge badge-warning">Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Friderik Dávid</td>
-                                <td>2012/01/21</td>
-                                <td>Staff</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
-                            </tr>
+                            @foreach ($emp_data as $emp)
+                                <tr>
+                                    {{-- <td>Derick Maximinus</td> --}}
+                                    <td>{{ $emp->first_name }} {{ $emp->last_name }}</td>
+                                    <td>{{ $emp->empDepartment->division }}</td>
+                                    <td>{{ $emp->role }}</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning">Show</a>
+                                        <a class="btn btn-sm btn-secondary">UPDATE</a>
+                                        <div class="btn btn-sm" >
+                                            <form action="/department/{{ $emp->id }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button> 
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <ul class="pagination">
