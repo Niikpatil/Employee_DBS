@@ -72,7 +72,6 @@ class EmployeesController extends Controller
             'last_name'   => 'required | min:3 | max:20',
             'email'       => 'required',
             'contact'     => 'required',
-
             'division'    => 'required',
             'role'        => 'required',
             'state_name'  => 'required',
@@ -146,7 +145,24 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
+        $departments = Department::orderBy('division', 'asc')->get();
+        $states = State::orderBy('state_name', 'asc')->get();
+        $cities = City::orderBy('city', 'asc')->get();
+        $countries = Country::orderBy('nation', 'asc')->get();
+        $salaries = Salary::orderBy('pay', 'asc')->get();
+        $genders = Gender::orderBy('gender_name', 'desc')->get();
 
+        $employee = Employee::findOrFail($id);
+
+        return view('employee.edit')->with([
+                'division'     =>   $departments,
+                'state_name'   =>   $states,
+                'cities'       =>   $cities,
+                'countries'    =>   $countries,
+                'salaries'     =>   $salaries,
+                'gender_name'  =>   $genders,
+                'employee'     =>   $employee
+        ]);     
     }
 
     /**
@@ -156,10 +172,54 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        $emp_edit = $request->validate([
+            'first_name'  => 'required | min:3 | max:20',
+            'last_name'   => 'required | min:3 | max:20',
+            'email'       => 'required',
+            'contact'     => 'required',
+            'division'    => 'required',
+            'role'        => 'required',
+            'state_name'  => 'required',
+            'city'        => 'required',
+            'country'     => 'required',
+            'gender_name' => 'required',
+        ]);
 
 
+
+        // $emp_edit = new Employee();
+
+        // $emp_edit->first_name  = $request->input('first_name');
+        // $emp_edit->last_name   = $request->input('last_name');
+        // $emp_edit->email       = $request->input('email');
+        // $emp_edit->contact     = $request->input('contact');
+        // $emp_edit->dept_id     = $request->input('division');
+        // $emp_edit->role_id     = $request->input('role');
+        // $emp_edit->state_id    = $request->input('state_name');
+        // $emp_edit->city_id     = $request->input('city');
+        // $emp_edit->country_id  = $request->input('country');
+        // $emp_edit->gender_id   = $request->input('gender_name');
+        
+        // // $emp_edit->save();
+
+        Employee::whereId($id)->update([
+                "$emp_edit->first_name"  => "$request->input('first_name')",
+                "$emp_edit->last_name "  => "$request->input('last_name')",
+                "$emp_edit->email     "  => "$request->input('email')",
+                "$emp_edit->contact   "  => "$request->input('contact')",
+                "$emp_edit->dept_id   "  => "$request->input('division')",
+                "$emp_edit->role_id   "  => "$request->input('role')",
+                "$emp_edit->state_id  "  => "$request->input('state_name')",
+                "$emp_edit->city_id   "  => "$request->input('city')",
+                "$emp_edit->country_id"  => "$request->input('country')",
+                "$emp_edit->gender_id "  => "$request->input('gender_name')",
+        ]);
+        // Department::whereId($id)->update($deptdata);
+        
+        return redirect('/employee');
+    
     }
 
     /**

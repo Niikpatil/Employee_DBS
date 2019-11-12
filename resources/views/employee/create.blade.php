@@ -14,7 +14,7 @@
             <div class="text-center col-md-10 offset-md-1">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Create Payband</h4>
+                        <h4>Create Profile</h4>
                     </div>
 
                     <div class="card-body">
