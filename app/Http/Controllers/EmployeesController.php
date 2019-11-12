@@ -28,9 +28,7 @@ class EmployeesController extends Controller
         return view('employee.index')->with([
                 'emp_data' =>  $emp_data,
                 // 'division' =>   $departments,
-
         ]);
-
     }                
 
     /**
@@ -81,7 +79,6 @@ class EmployeesController extends Controller
         ]);
 
         $emp_data = new Employee();
-
         $emp_data->first_name  = $request->input('first_name');
         $emp_data->last_name   = $request->input('last_name');
         $emp_data->email       = $request->input('email');
@@ -161,7 +158,7 @@ class EmployeesController extends Controller
                 'countries'    =>   $countries,
                 'salaries'     =>   $salaries,
                 'gender_name'  =>   $genders,
-                'employee'     =>   $employee
+                'employee'     =>   $employee,
         ]);     
     }
 
@@ -187,37 +184,18 @@ class EmployeesController extends Controller
             'gender_name' => 'required',
         ]);
 
-
-
-        // $emp_edit = new Employee();
-
-        // $emp_edit->first_name  = $request->input('first_name');
-        // $emp_edit->last_name   = $request->input('last_name');
-        // $emp_edit->email       = $request->input('email');
-        // $emp_edit->contact     = $request->input('contact');
-        // $emp_edit->dept_id     = $request->input('division');
-        // $emp_edit->role_id     = $request->input('role');
-        // $emp_edit->state_id    = $request->input('state_name');
-        // $emp_edit->city_id     = $request->input('city');
-        // $emp_edit->country_id  = $request->input('country');
-        // $emp_edit->gender_id   = $request->input('gender_name');
-        
-        // // $emp_edit->save();
-
         Employee::whereId($id)->update([
-                "$emp_edit->first_name"  => "$request->input('first_name')",
-                "$emp_edit->last_name "  => "$request->input('last_name')",
-                "$emp_edit->email     "  => "$request->input('email')",
-                "$emp_edit->contact   "  => "$request->input('contact')",
-                "$emp_edit->dept_id   "  => "$request->input('division')",
-                "$emp_edit->role_id   "  => "$request->input('role')",
-                "$emp_edit->state_id  "  => "$request->input('state_name')",
-                "$emp_edit->city_id   "  => "$request->input('city')",
-                "$emp_edit->country_id"  => "$request->input('country')",
-                "$emp_edit->gender_id "  => "$request->input('gender_name')",
-        ]);
-        // Department::whereId($id)->update($deptdata);
-        
+            'first_name'  => $request->first_name,
+            'last_name'   => $request->last_name,
+            'email'       => $request->email,
+            'contact'     => $request->contact,
+            'dept_id'     => $request->division,
+            'role_id'     => $request->role,
+            'state_id'    => $request->state_name,
+            'city_id'     => $request->city,
+            'country_id'  => $request->country,
+            'gender_id'   => $request->gender_name,
+        ]);        
         return redirect('/employee');
     
     }
