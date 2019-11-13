@@ -29,8 +29,8 @@
                                     <td>
                                         <a class="btn btn-sm btn-secondary">Show</a>
                                         <a class="btn btn-sm btn-warning" href="/employee/{{ $emp->id }}/edit">Update</a>
-                                        <div class="btn btn-sm" >
-                                            <form action="/department/{{ $emp->id }}" method="POST">
+                                        <div class="btn btn-sm">
+                                            <form action="/employee/{{ $emp->id }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button> 

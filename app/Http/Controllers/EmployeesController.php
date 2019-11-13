@@ -111,15 +111,7 @@ class EmployeesController extends Controller
             // To append the timpstamp within file name
             $newfile = $file_fullname.'_'.time().'_'.$f_extention;
 
-            
         }
-
-
-
-
-
-
-        
     }
 
     
@@ -208,6 +200,8 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        
+        $emp = Employee::findOrFail($id);
+        $emp->delete();
+        return redirect('/employee');
     }
 }
