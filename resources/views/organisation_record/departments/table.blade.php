@@ -26,7 +26,7 @@
                                     <td> {{ $dept->division }} </td>
                                     <td> {{ $dept->department_head }} </td>
                                     <td>
-                                        <a class="btn btn-sm btn-warning" href="department/{{ $dept->id }}/edit">UPDATE</a>
+                                        <a class="edit btn btn-sm btn-secondary" href="department/{{ $dept->id }}/edit">Update</a>
                                         <div class="btn btn-sm" >
                                             <form action="/department/{{ $dept->id }}" method="POST">
                                                 @csrf

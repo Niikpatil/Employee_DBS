@@ -9,6 +9,7 @@
                         <a href="{{ route('employee.create') }}" class="btn btn-info" role="button" aria-pressed="true">Create</a>
                     </div> 
                 </div>
+
                 <div class="card-body">
                     <table class="table table-striped table-responsive-sm">
                         <thead class="table-dark text">

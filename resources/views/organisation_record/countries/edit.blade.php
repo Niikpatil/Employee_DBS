@@ -14,7 +14,7 @@
             <div class="text-center col-lg-8 offset-lg-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Add Countries</h4>
+                        <h4>Update Countries</h4>
                     </div>
                     <div class="card-body">
                         <form action='/countries/{{ $country->id }}' method="POST">
@@ -27,7 +27,10 @@
                                     <input type="text" name="nation" value="{{ $country->nation }}" placeholder="India"  class="form-control" id="country" >
                                 </div>
                             </div> <br />
-                            <button type="submit" class="btn btn-success">Add</button> 
+                            <a href="/countries" class="btn btn-sm btn-danger">Back</a>
+                            <div class="btn">
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                            </div> 
                         </form>
                     </div>
                 </div>

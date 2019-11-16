@@ -25,7 +25,11 @@
                                     <input type="text" name="state_name" placeholder="eg. Karnataka"  class="form-control" id="state">
                                 </div>
                             </div> <br />
-                            <button type="submit" class="btn btn-success">Add</button> 
+
+                            <a href="/states" class="btn btn-sm btn-danger">Back</a>
+                            <div class="btn">
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                            </div> 
                         </form>
                     </div>
                 </div>

@@ -36,7 +36,10 @@
                                     </select>
                                 </div>
                             </div> <br />
-                            <button type="submit" class="btn btn-info">Add</button> 
+                            <a href="/salaries" class="btn btn-sm btn-danger">Back</a>
+                            <div class="btn">
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                            </div> 
                         </form>
                     </div>
 

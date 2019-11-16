@@ -4,7 +4,7 @@
         <div class="text-center col-lg-10 offset-1">
             <div class="card">
                 <div class="card-header">
-                    <h4>Financial Accounts</h4>       
+                    <h4>Employee Payband</h4>       
                     <div align="right">
                         <a href="{{ route('salaries.create') }}" class="btn btn-info" role="button" aria-pressed="true">Create</a>
                     </div> 
@@ -21,15 +21,11 @@
                         </thead>
                         <tbody>
                             @foreach ($sal as $salary)
-                            
-                            
-                            
                                 <tr>
-                                    <td>{{ $salary->pay}}</td>
                                     <td>{{ $salary->role}}</td>
+                                    <td>{{ $salary->pay}}</td>
                                     <td>
-                                        {{-- <button type="button" class="view btn btn-sm btn-secondary">View</button>&nbsp;&nbsp; --}}
-                                        <a href="/salaries/{{$salary->id}}/edit"  class="edit btn btn-sm btn-secondary">Edit</a>&nbsp;
+                                        <a href="/salaries/{{$salary->id}}/edit"  class="edit btn btn-sm btn-secondary">Update</a>&nbsp;
                                         <div class="btn">
                                             <form action="/salaries/{{$salary->id}}" method="POST">
                                                 @csrf
@@ -39,15 +35,11 @@
                                         </div>
                                     </td>
                                 </tr>
-                            
                             @endforeach
-                        
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        
     </div>
-    
 </div>

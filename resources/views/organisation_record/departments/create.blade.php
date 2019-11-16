@@ -30,7 +30,10 @@
                                     <input type="text" class="form-control" name="department_head" id="HOD" placeholder="eg. Mr Borkar">
                                 </div>
                             </div> <br />
-                            <button type="submit" class="btn btn-success">Add</button> 
+                            <a href="/department" class="btn btn-sm btn-danger">Back</a>
+                            <div class="btn">
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                            </div>
                         </form>
                     </div>
                 </div>

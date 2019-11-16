@@ -24,7 +24,7 @@
                                 <tr>
                                     <td class="font-weight-bolder">{{ $nations->nation }}</td>
                                     <td>
-                                        <a href="/countries/{{ $nations->id }}/edit" class="edit btn btn-sm btn-primary">Update</a>&nbsp;
+                                        <a href="/countries/{{ $nations->id }}/edit" class="edit btn btn-sm btn-secondary">Update</a>&nbsp;
                                         <div class="btn">
                                             <form action="/countries/{{$nations->id}}" method="POST">
                                                 @csrf
@@ -38,7 +38,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>

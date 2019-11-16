@@ -21,7 +21,6 @@
                     <form action="/cities/{{$city->id}}" method="POST">
                         @csrf
                         @method('PUT')
-
                             <div class="form-row col-md-12 text-left">
                                 <div class="form-group col-md-3">
                                     <label for="Area">Area</label>
@@ -37,15 +36,15 @@
                                 </div>
                             </div> <br />
 
-                        <button type="submit" class="btn btn-success">Add</button> 
+                            <a href="/cities" class="btn btn-sm btn-danger">Back</a>
+                            <div class="btn">
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                            </div> 
                     </form>
-
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
 @endsection

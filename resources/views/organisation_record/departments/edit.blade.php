@@ -18,28 +18,28 @@
                     </div>
 
                     <div class="card-body">
-                    <form action="/department/{{ $dept->id }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                            <div class="form-row col-md-10 text-left">
-                                <div class="form-group col-md-5 offset-md-1">
-                                    <label for="Division">Division</label>
-                                    <input type="text" name="division" value="{{ $dept->division }}" placeholder="eg. Human Resources" class="form-control" id="Division" >
-                                </div>
-                                <div class="form-group col-md-5 offset-md-1">
-                                    <label for="HOD">Department Incharge </label>
-                                    <input type="text" name="department_head" value="{{ $dept->department_head }}" placeholder="eg. Mr Borkar" class="form-control" id="HOD">
-                                </div>
-                            </div> <br />
-                        <button type="submit" class="btn btn-success">Add</button> 
-                    </form>
-
-
-
+                        <form action="/department/{{ $dept->id }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                                <div class="form-row col-md-10 text-left">
+                                    <div class="form-group col-md-5 offset-md-1">
+                                        <label for="Division">Division</label>
+                                        <input type="text" name="division" value="{{ $dept->division }}" placeholder="eg. Human Resources" class="form-control" id="Division" >
+                                    </div>
+                                    <div class="form-group col-md-5 offset-md-1">
+                                        <label for="HOD">Department Incharge </label>
+                                        <input type="text" name="department_head" value="{{ $dept->department_head }}" placeholder="eg. Mr Borkar" class="form-control" id="HOD">
+                                    </div>
+                                </div> <br />
+                            <a href="/department" class="btn btn-sm btn-danger">Back</a>
+                            <div class="btn">
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                            </div> 
+                        </form>
                     </div>
+
                 </div>
             </div>
-
         </div>
     </div>
 </div>

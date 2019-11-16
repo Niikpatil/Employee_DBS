@@ -25,14 +25,16 @@
                                     <input type="text" name="nation" placeholder="India"  class="form-control" id="country" >
                                 </div>
                             </div> <br />
-                            <button type="submit" class="btn btn-success">Add</button> 
+
+                            <a href="/countries" class="btn btn-sm btn-danger">Back</a>
+                            <div class="btn">
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                            </div> 
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
 @endsection
