@@ -15,7 +15,7 @@ class Employee extends Model
     public function empDepartment()
     {
         return $this->belongsTo('App\Department', 'dept_id');
-    }   
+    }
 
 
     public function empSalary()

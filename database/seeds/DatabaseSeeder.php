@@ -12,19 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // EmployeeTableSeeder::class,
             CitiesTableSeeder::class,
             GendersTableSeeder::class,
-
-            // Remaining 
-            
             StatesTableSeeder::class,
             CountriesTableSeeder::class,
             DivisionTableSeeder::class,
             SalariesTableSeeder::class,
-            
-
-            
-            ]);
+        ]);
     }
 }

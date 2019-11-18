@@ -12,7 +12,6 @@ use App\Gender;
 use DB;
 
 
-
 class EmployeesController extends Controller
 {
     /**
