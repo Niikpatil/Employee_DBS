@@ -10,5 +10,25 @@
 ## Technologies Used
 
 - Laravel
-- Bootstrap4
+- Bootstrap 4
 - MySQL
+
+
+### Running this web application on your device
+
+- clone this repository to your local machine or just download the zip.
+
+
+- rename .env.example to .env and add your database and mail driver credentials.
+
+- generate application key.
+
+```bash
+    php artisan key:generate
+```
+
+- create database tables.
+
+```bash
+    php artisan migrate
+```
