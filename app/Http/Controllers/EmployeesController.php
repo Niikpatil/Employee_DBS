@@ -67,6 +67,7 @@ class EmployeesController extends Controller
         $emp_data = $request->validate([
             'first_name'  => 'required | min:3 | max:20',
             'last_name'   => 'required | min:3 | max:20',
+            'pic'         => 'required | image | max:20148',
             'email'       => 'required',
             'contact'     => 'required',
             'division'    => 'required',
@@ -80,6 +81,7 @@ class EmployeesController extends Controller
         $emp_data = new Employee();
         $emp_data->first_name  = $request->input('first_name');
         $emp_data->last_name   = $request->input('last_name');
+        $emp_data->pic         = $request->input('pic');
         $emp_data->email       = $request->input('email');
         $emp_data->contact     = $request->input('contact');
         $emp_data->dept_id     = $request->input('division');
@@ -88,12 +90,6 @@ class EmployeesController extends Controller
         $emp_data->city_id     = $request->input('city');
         $emp_data->country_id  = $request->input('country');
         $emp_data->gender_id   = $request->input('gender_name');
-        $emp_data->save();
-
-        return redirect('/employee');
-
-
-
 
 
         if($request->hasFile('pic'))
@@ -102,15 +98,24 @@ class EmployeesController extends Controller
             $file_fullname = $request->file('pic')->getClientOriginalName();
 
             // To Get just file name
-            $f_extention = $request->pathInfo($fileName,PATHINFO_FILENAME );
+            $f_extention = $request->pathInfo($file_fullname, PATHINFO_FILENAME);
+            // $path = $request->file('pic')->storeAs('public/employee_images',$file_fullname);
+
 
             // To Get just file extention
             $file_name = $request->file('pic')->getClientOriginalName();
 
             // To append the timpstamp within file name
-            $newfile = $file_fullname.'_'.time().'_'.$f_extention;
+            $new_pic_name = $file_fullname.'_'.time().'_'.$f_extention;
+        }  
 
-        }
+        $pic->move(public_path('images/emp'), $new_pic_name);
+
+
+        $emp_data->save();
+
+        return redirect('/employee');
+
     }
 
     

@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('last_name');
             $table->string('email');
             $table->string('contact');
-            $table->string('image')->nullable();
+            $table->string('pic')->nullable();
             $table->date('join_date')->nullable();
             $table->date('birth_date')->nullable();
 

@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('employee.store') }}" method="POST">
+                        <form action="{{ route('employee.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
@@ -121,8 +121,8 @@
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">
                                     <div class="form-group">    
-                                        <label for="exampleFormControlFile1">File input</label>
-                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        <label for="picture">File input</label>
+                                        <input type="file" name="pic" class="form-control-file" id="picture" />
                                     </div>
                                 </div>
                             </div> <br /> 
