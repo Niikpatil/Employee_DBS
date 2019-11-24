@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="/employee/{{ $employee->id }}" method="POST">
+                        <form action="/employee/{{ $employee->id }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="form-row col-md-11 text-left">
@@ -147,7 +147,7 @@
                                 <div class="form-group col-sm-4 offset-sm-2">
                                     <div class="form-group">    
                                         <img src="{{ URL::to('/') }}/images/emp/{{ $employee->pic}}" class="img-thumbnail" width="150px">
-                                        <input type="hidden" name="hidden_image" value="{{ $employee->pic }}" />
+                                        <input type="hidden" name="hidden_pic" value="{{ $employee->pic }}" />
                                     </div>
                                 </div>
                             </div> <br /> 

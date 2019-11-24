@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Validator,Redirect,Response,File;
+
 use App\Employee;
 use App\Department;
 use App\Country;
@@ -156,33 +158,48 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $emp_edit = $request->validate([
-            'first_name'  => 'required | min:3 | max:20',
-            'last_name'   => 'required | min:3 | max:20',
-            'email'       => 'required',
-            'contact'     => 'required',
-            'division'    => 'required',
-            'role'        => 'required',
-            'state_name'  => 'required',
-            'city'        => 'required',
-            'country'     => 'required',
-            'gender_name' => 'required',
-        ]);
+
+        $pic_update  =  $request->hidden_pic;
+        $pic         =  $request->file('pic');
+
+        if($request->hasFile('pic'))
+        {
+                $request->validate([
+                    'first_name'  =>    'required | min:3 | max:20',
+                    'last_name'   =>    'required | min:3 | max:20',
+                    'pic'         =>    'required |image|mimes:jpeg,png,jpg,gif|max:5000',
+                    'email'       =>    'required',
+                    'contact'     =>    'required',
+                    'division'    =>    'required',
+                    'role'        =>    'required',
+                    'state_name'  =>    'required',
+                    'city'        =>    'required',
+                    'country'     =>    'required',
+                    'gender_name' =>    'required',
+                ]);
+
+            $pic_update =  rand() . '_' .time(). '_' . '.' . $pic->getClientOriginalExtension();
+            $pic->move(public_path('images/emp'), $pic_update);
+        }
+
+
+
 
         Employee::whereId($id)->update([
-            'first_name'  => $request->first_name,
-            'last_name'   => $request->last_name,
-            'email'       => $request->email,
-            'contact'     => $request->contact,
-            'dept_id'     => $request->division,
-            'role_id'     => $request->role,
-            'state_id'    => $request->state_name,
-            'city_id'     => $request->city,
-            'country_id'  => $request->country,
-            'gender_id'   => $request->gender_name,
+            'first_name'  =>  $request->first_name,
+            'last_name'   =>  $request->last_name,
+            'email'       =>  $request->email,
+            'contact'     =>  $request->contact,
+            'dept_id'     =>  $request->division,
+            'role_id'     =>  $request->role,
+            'pic'         =>  $pic_update,
+            'state_id'    =>  $request->state_name,
+            'city_id'     =>  $request->city,
+            'country_id'  =>  $request->country,
+            'gender_id'   =>  $request->gender_name,
         ]);        
+
         return redirect('/employee');
-    
     }
 
     /**
