@@ -32,11 +32,11 @@
                             @csrf
                             @method('PUT')
                             <div class="form-row col-md-10">
-                                <div class="form-group {{ $errors->has('state') }} col-md-5 offset-md-5">
-                                    <label for="state">State</label>
-                                    <input type="text" name="state" value="{{ $state->state_name }}" placeholder="eg. Karnataka"  class="form-control" id="state">
-                                    <span class="text-danger">{{ $errors->first('state') }}</span>
-                                </div>
+                                <div class="form-group {{ $errors->has('state_name') }} col-md-5 offset-md-5">
+                                    <label for="state_name">State</label>
+                                    <input type="text" name="state_name" value="{{ $state->state_name }}" placeholder="eg. Karnataka"  class="form-control" id="state_name">
+                                    <span class="text-danger">{{ $errors->first('state_name') }}</span>
+                                </div>  
                             </div> <br />
 
                             <a href="/states" class="btn btn-sm btn-danger">Back</a>
