@@ -15,15 +15,17 @@
                         <thead class="table-dark text">
                             <tr>
                                 <th width="2%">Image</th>
-                                <th width="5%">Name</th>
+                                <th width="3%">Name</th>
                                 <th width="2%">Role</th>
-                                <th width="3%">Option</th>
+                                <th width="5%" colspan="3">Option</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($emp_data as $emp)
                                 <tr>
-                                    {{-- <td>Derick Maximinus</td> --}}
+                                    <td>
+                                        <img src="{{ asset('images/emp/' .$emp->pic) }}" class="img-thumbnail" width="70px">
+                                    </td>
                                     <td>{{ $emp->first_name }} {{ $emp->last_name }}</td>
                                     <td>{{ $emp->empDepartment->division }}</td>
                                     <td>{{ $emp->role }}</td>

@@ -11,5 +11,4 @@
             @include('employee.table')
         </div>
     </div>
-
 @endsection

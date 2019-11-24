@@ -142,13 +142,19 @@
                                     <div class="form-group">    
                                         <label for="picture">File input</label>
                                         <input type="file" name="pic" class="form-control-file" id="picture"/>
-                                        <img src="{{ URL::to('/') }}/images/emp/{{ $employee->pic}}" class="img-thumbnail" width="100">
-                                            <input type="hidden" name="hidden_image" value="{{ $employee->pic }}" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-4 offset-sm-2">
+                                    <div class="form-group">    
+                                        <img src="{{ URL::to('/') }}/images/emp/{{ $employee->pic}}" class="img-thumbnail" width="150px">
+                                        <input type="hidden" name="hidden_image" value="{{ $employee->pic }}" />
                                     </div>
                                 </div>
                             </div> <br /> 
-
-                            <button type="submit" class="btn btn-success">Add</button> 
+                                <a href="/employee" class="btn btn-sm btn-danger">Back</a>
+                                <div class="btn">
+                                    <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
+                                </div> 
                         </form>
                     </div>
                 </div>

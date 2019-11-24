@@ -126,8 +126,10 @@
                                     </div>
                                 </div>
                             </div> <br /> 
-
-                            <button type="submit" class="btn btn-success">Add</button> 
+                                <a href="/employee" class="btn btn-md btn-danger">Back</a>
+                                <div class="btn">
+                                    <button type="submit" class="btn btn-md btn-primary">Submit</button> 
+                                </div>
                         </form>
                     </div>
                 </div>
