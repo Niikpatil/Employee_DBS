@@ -28,7 +28,6 @@ class EmployeesController extends Controller
 
         return view('employee.index')->with([
                 'emp_data' =>  $emp_data,
-                // 'division' =>   $departments,
         ]);
     }                
 
@@ -48,12 +47,12 @@ class EmployeesController extends Controller
         $genders = Gender::orderBy('gender_name', 'desc')->get();
 
         return view('employee.create')->with([
-                'division'     =>   $departments,
-                'state_name'   =>   $states,
-                'cities'       =>   $cities,
-                'countries'    =>   $countries,
-                'salaries'     =>   $salaries,
-                'gender_name'  =>   $genders,
+                'division'     =>  $departments,
+                'state_name'   =>  $states,
+                'cities'       =>  $cities,
+                'countries'    =>  $countries,
+                'salaries'     =>  $salaries,
+                'gender_name'  =>  $genders,
         ]); 
     }
 
@@ -67,40 +66,38 @@ class EmployeesController extends Controller
     {
 
         $emp_data = $request->validate([
-            'first_name'  => 'required | min:3 | max:20',
-            'last_name'   => 'required | min:3 | max:20',
-            'pic'         => 'required |image|mimes:jpeg,png,jpg,gif|max:2048',
-            'email'       => 'required',
-            'contact'     => 'required',
-            'division'    => 'required',
-            'role'        => 'required',
-            'state_name'  => 'required',
-            'city'        => 'required',
-            'country'     => 'required',
-            'gender_name' => 'required',
+            'first_name'   =>  'required | min:3 | max:20',
+            'last_name'    =>  'required | min:3 | max:20',
+            'pic'          =>  'required |image|mimes:jpeg,png,jpg,gif|max:2048',
+            'email'        =>  'required | email | unique:users,email',
+            'contact'      =>  'required',
+            'division'     =>  'required',
+            'role'         =>  'required',
+            'state_name'   =>  'required',
+            'city'         =>  'required',
+            'country'      =>  'required',
+            'gender_name'  =>  'required',
         ]);
 
-        
         $emp_data = new Employee();
-        $emp_data->first_name  = $request->input('first_name');
-        $emp_data->last_name   = $request->input('last_name');
-        $emp_data->email       = $request->input('email');
-        $emp_data->contact     = $request->input('contact');
-        $emp_data->dept_id     = $request->input('division');
-        $emp_data->role_id     = $request->input('role');
-        $emp_data->state_id    = $request->input('state_name');
-        $emp_data->city_id     = $request->input('city');
-        $emp_data->country_id  = $request->input('country');
-        $emp_data->gender_id   = $request->input('gender_name');
+        $emp_data->first_name  =  $request->input('first_name');
+        $emp_data->last_name   =  $request->input('last_name');
+        $emp_data->email       =  $request->input('email');
+        $emp_data->contact     =  $request->input('contact');
+        $emp_data->dept_id     =  $request->input('division');
+        $emp_data->role_id     =  $request->input('role');
+        $emp_data->state_id    =  $request->input('state_name');
+        $emp_data->city_id     =  $request->input('city');
+        $emp_data->country_id  =  $request->input('country');
+        $emp_data->gender_id   =  $request->input('gender_name');
 
         if($request->hasFile('pic'))
         {
             // To Get file full name (With extention)
             $file = $request->file('pic');
-            $extention = $file->getClientOriginalExtension();
 
             // To append the timpstamp within file name
-            $pic_name = rand() . '_' .time(). '_' . '.' . $extention;
+            $pic_name = rand() . '_' .time(). '_' . '.' .$file->getClientOriginalExtension();
             $file->move(public_path('images/emp'), $pic_name);
             $emp_data->pic = $pic_name;
         }  
@@ -139,13 +136,13 @@ class EmployeesController extends Controller
         $employee = Employee::findOrFail($id);
 
         return view('employee.edit')->with([
-                'division'     =>   $departments,
-                'state_name'   =>   $states,
-                'cities'       =>   $cities,
-                'countries'    =>   $countries,
-                'salaries'     =>   $salaries,
-                'gender_name'  =>   $genders,
-                'employee'     =>   $employee,
+                'division'     =>  $departments,
+                'state_name'   =>  $states,
+                'cities'       =>  $cities,
+                'countries'    =>  $countries,
+                'salaries'     =>  $salaries,
+                'gender_name'  =>  $genders,
+                'employee'     =>  $employee,
         ]);     
     }
 
@@ -165,25 +162,22 @@ class EmployeesController extends Controller
         if($request->hasFile('pic'))
         {
                 $request->validate([
-                    'first_name'  =>    'required | min:3 | max:20',
-                    'last_name'   =>    'required | min:3 | max:20',
-                    'pic'         =>    'required |image|mimes:jpeg,png,jpg,gif|max:5000',
-                    'email'       =>    'required',
-                    'contact'     =>    'required',
-                    'division'    =>    'required',
-                    'role'        =>    'required',
-                    'state_name'  =>    'required',
-                    'city'        =>    'required',
-                    'country'     =>    'required',
-                    'gender_name' =>    'required',
+                    'first_name'  =>  'required | min:3 | max:20',
+                    'last_name'   =>  'required | min:3 | max:20',
+                    'pic'         =>  'required | image | mimes:jpeg,png,jpg,gif | max:5000',
+                    'email'       =>  'required | email | unique:users,email',
+                    'contact'     =>  'required',
+                    'division'    =>  'required',
+                    'role'        =>  'required',
+                    'state_name'  =>  'required',
+                    'city'        =>  'required',
+                    'country'     =>  'required',
+                    'gender_name' =>  'required',
                 ]);
 
             $pic_update =  rand() . '_' .time(). '_' . '.' . $pic->getClientOriginalExtension();
             $pic->move(public_path('images/emp'), $pic_update);
         }
-
-
-
 
         Employee::whereId($id)->update([
             'first_name'  =>  $request->first_name,

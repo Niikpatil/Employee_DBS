@@ -17,12 +17,24 @@
                         <h4>Add State</h4>
                     </div>
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops !</strong> <br />
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li >{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form action="{{ route('states.store') }}" method="POST">
                             @csrf
                             <div class="form-row col-md-10">
-                                <div class="form-group col-md-5 offset-md-5">
-                                    <label for="state">State</label>
-                                    <input type="text" name="state_name" placeholder="eg. Karnataka"  class="form-control" id="state">
+                                <div class="form-group col-md-5 offset-md-5 {{ $errors->has('state_name') ? 'has-error' : ' s'}} ">
+                                    <label for="state_name">State</label>
+                                    <input type="text" name="state_name" placeholder="eg. Karnataka"  class="form-control" id="state_name">
+                                    <span class="text-danger"> {{$errors->first('state_name')}} </span>
                                 </div>
                             </div> <br />
 
