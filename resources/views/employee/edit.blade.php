@@ -18,33 +18,48 @@
                     </div>
 
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops !</strong> <br />
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form action="/employee/{{ $employee->id }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">
-                                    <label for="fname">First Name</label>
-                                    <input type="text" name="first_name" value="{{ $employee->first_name }}" placeholder="donald"  class="form-control" id="fname" >
+                                <div class="form-group  {{ $errors->has('first_name') ? 'has-error' : '' }}  col-sm-4 offset-sm-2">
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" name="first_name" value="{{ $employee->first_name }}" placeholder="donald"  class="form-control" id="first_name" >
+                                    <span class="text-danger">{{ $errors->first('first_name') }}</span>
                                 </div>
-                                <div class="form-group col-sm-4 offset-sm-1">
-                                    <label for="lname">Last Name</label>
-                                    <input type="text" name="last_name" value="{{ $employee->last_name }}" placeholder="trump"  class="form-control" id="lname" >
+                                <div class="form-group  {{ $errors->has('last_name') ? 'has-error' : '' }}  col-sm-4 offset-sm-1">
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" name="last_name" value="{{ $employee->last_name }}" placeholder="trump"  class="form-control" id="last_name" >
+                                    <span class="text-danger">{{ $errors->first('last_name') }}</span>
                                 </div>
                             </div> <br />
 
                             <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">
+                                <div class="form-group  {{$errors->has('email') ? 'has-error' : ''}}  col-sm-4 offset-sm-2">
                                     <label for="email">eMail</label>
-                                    <input type="text" name="email" value="{{ $employee->email }}" placeholder="titan@gmail.com"  class="form-control" id="fname" >
+                                    <input type="text" name="email" value="{{ $employee->email }}" placeholder="titan@gmail.com"  class="form-control" id="email" >
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
                                 </div>
-                                <div class="form-group col-sm-3 offset-sm-1">
+                                <div class="form-group  {{$errors->has('contact') ? 'has-error' : ''}}  col-sm-3 offset-sm-1">
                                     <label for="contact">Contact</label>
                                     <input type="text" name="contact" value="{{ $employee->contact }}" placeholder="+91 9483975483"  class="form-control" id="contact" >
+                                    <span class="text-danger">{{ $errors->first('contact') }}</span>
                                 </div>
                             </div> <br />
 
                             <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">
+                                <div class="form-group  {{$errors->has('division') ? 'has-error' : ''}}  col-sm-4 offset-sm-2">
                                     <label for="division">Division</label>
                                     <select class="form-control" name="division">
                                         <option value="" disabled {{ old('division') ? '' : 'selected' }}>Department</option>
@@ -55,8 +70,9 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <span class="text-danger">{{ $errors->first('division') }}</span>
                                 </div>
-                                <div class="form-group col-sm-4 offset-sm-1">
+                                <div class="form-group  {{$errors->has('role') ? 'has-error' : ''}}  col-sm-4 offset-sm-1">
                                     <label for="role">Designation</label>
                                     <select class="form-control" name="role">
                                         <option value="" disabled {{ old('role') ? '' : 'selected' }}>Work Role</option>
@@ -67,11 +83,12 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <span class="text-danger">{{ $errors->first('role') }}</span>
                                 </div>
                             </div> <br />
 
                             <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">   
+                                <div class="form-group  {{ $errors->has('state_name') ? 'has-error' : '' }}  col-sm-4 offset-sm-2">   
                                     <label for="state">State</label>
                                     <select class="form-control" name="state_name">
                                         <option value="state_name" disabled {{ old('state_name') ? '' : 'selected' }}>State Select</option>
@@ -82,8 +99,9 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <span class="text-danger">{{ $errors->first('state_name') }}</span>
                                 </div>
-                                <div class="form-group col-sm-4 offset-sm-1">
+                                <div class="form-group  {{$errors->has('city') ? 'has-error' : ''}}  col-sm-4 offset-sm-1">
                                     <label for="city">City</label>
                                     <select class="form-control" name="city">
                                         <option value="city" disabled {{ old('city') ? '' : 'selected' }}>City Select</option>
@@ -94,11 +112,12 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <span class="text-danger"> {{ $errors->first('city') }} </span>
                                 </div>
                             </div> <br />
 
                             <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">
+                                <div class="form-group  {{$errors->has('country') ? 'has-error' : ''}}  col-sm-4 offset-sm-2">
                                     <label for="fname">Country</label>
                                     <select class="form-control" name="country">
                                         <option value="country" disabled {{ old('country') ? '' : 'selected' }}>Country Select</option>
@@ -109,9 +128,10 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <span class="text-danger">{{ $errors->first('country') }}</span>
                                 </div>
 
-                                <div class="form-group col-sm-2 offset-sm-1">
+                                <div class="form-group {{$errors->has('gender_name') ? 'has-error' : ''}}  col-sm-2 offset-sm-1">
                                     <label for="fname">Gender</label>
                                     <select class="form-control" name="gender_name">
                                         <option value="gender_name" disabled {{ old('gender_name') ? '' : 'selected' }}>Select</option>
@@ -122,6 +142,7 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    <span>{{ $errors->first('gender_name') }}</span>
                                 </div>
                             </div> <br /><br /><br />
 {{-- 
@@ -138,10 +159,11 @@
                             --}}
 
                             <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">
+                                <div class="form-group  {{$errors->has('pic') ? 'has-error' : ''}}  col-sm-4 offset-sm-2">
                                     <div class="form-group">    
-                                        <label for="picture">File input</label>
-                                        <input type="file" name="pic" class="form-control-file" id="picture"/>
+                                        <label for="pic">File input</label>
+                                        <input type="file" name="pic" class="form-control-file" id="pic"/>
+                                        <span class="text-danger">{{ $errors->first('pic') }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group col-sm-4 offset-sm-2">

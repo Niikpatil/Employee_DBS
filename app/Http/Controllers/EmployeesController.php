@@ -100,7 +100,7 @@ class EmployeesController extends Controller
             $pic_name = rand() . '_' .time(). '_' . '.' .$file->getClientOriginalExtension();
             $file->move(public_path('images/emp'), $pic_name);
             $emp_data->pic = $pic_name;
-        }  
+        }
 
         $emp_data->save();
         return redirect('/employee');
@@ -165,7 +165,7 @@ class EmployeesController extends Controller
                     'first_name'  =>  'required | min:3 | max:20',
                     'last_name'   =>  'required | min:3 | max:20',
                     'pic'         =>  'required | image | mimes:jpeg,png,jpg,gif | max:5000',
-                    'email'       =>  'required | email | unique:users,email',
+                    'email'       =>  'required | min:8 | email | unique:users,email',
                     'contact'     =>  'required',
                     'division'    =>  'required',
                     'role'        =>  'required',
