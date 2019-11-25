@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Validator,Redirect,Response,File;
 
 use App\Employee;
 use App\Department;
@@ -68,7 +67,7 @@ class EmployeesController extends Controller
         $emp_data = $request->validate([
             'first_name'   =>  'required | min:3 | max:20',
             'last_name'    =>  'required | min:3 | max:20',
-            'pic'          =>  'required |image|mimes:jpeg,png,jpg,gif|max:2048',
+            'pic'          =>  'required | image | mimes:jpeg,png,jpg | max:3000',
             'email'        =>  'required | email | unique:users,email',
             'contact'      =>  'required',
             'division'     =>  'required',
@@ -95,9 +94,11 @@ class EmployeesController extends Controller
         {
             // To Get file full name (With extention)
             $file = $request->file('pic');
+            $extension = $file->getClientOriginalExtension();
 
             // To append the timpstamp within file name
-            $pic_name = rand() . '_' .time(). '_' . '.' .$file->getClientOriginalExtension();
+            $pic_name = rand() . '_' .md5(time()). '_' . '.' .$extension;
+;
             $file->move(public_path('images/emp'), $pic_name);
             $emp_data->pic = $pic_name;
         }
@@ -159,39 +160,40 @@ class EmployeesController extends Controller
         $pic_update  =  $request->hidden_pic;
         $pic         =  $request->file('pic');
 
-        if($request->hasFile('pic'))
-        {
+            if($pic != '')
+            {
                 $request->validate([
-                    'first_name'  =>  'required | min:3 | max:20',
-                    'last_name'   =>  'required | min:3 | max:20',
-                    'pic'         =>  'required | image | mimes:jpeg,png,jpg,gif | max:5000',
-                    'email'       =>  'required | min:8 | email | unique:users,email',
-                    'contact'     =>  'required',
-                    'division'    =>  'required',
-                    'role'        =>  'required',
-                    'state_name'  =>  'required',
-                    'city'        =>  'required',
-                    'country'     =>  'required',
-                    'gender_name' =>  'required',
+                    'first_name'   =>  'required | min:3 | max:20',
+                    'last_name'    =>  'required | min:3 | max:20',
+                    'pic'          =>  'required | image | mimes:jpeg,png,jpg | max:3000',
+                    'email'        =>  'required | email | unique:users,email',
+                    'contact'      =>  'required',
+                    'division'     =>  'required',
+                    'role'         =>  'required',
+                    'state_name'   =>  'required',
+                    'city'         =>  'required',
+                    'country'      =>  'required',
+                    'gender_name'  =>  'required',
                 ]);
 
-            $pic_update =  rand() . '_' .time(). '_' . '.' . $pic->getClientOriginalExtension();
+            $extention  =  $pic->getClientOriginalExtension();
+            $pic_update =  rand() . '_' .time(). '_' . '.' .$extention;
             $pic->move(public_path('images/emp'), $pic_update);
         }
 
         Employee::whereId($id)->update([
-            'first_name'  =>  $request->first_name,
-            'last_name'   =>  $request->last_name,
-            'email'       =>  $request->email,
-            'contact'     =>  $request->contact,
-            'dept_id'     =>  $request->division,
-            'role_id'     =>  $request->role,
+            'first_name'  =>  $request->input('first_name'),
+            'last_name'   =>  $request->input('last_name'),
+            'email'       =>  $request->input('email'),
+            'contact'     =>  $request->input('contact'),
+            'dept_id'     =>  $request->input('division'),
+            'role_id'     =>  $request->input('role'),
+            'state_id'    =>  $request->input('state_name'),
+            'city_id'     =>  $request->input('city'),
+            'country_id'  =>  $request->input('country'),
+            'gender_id'   =>  $request->input('gender_name'),
             'pic'         =>  $pic_update,
-            'state_id'    =>  $request->state_name,
-            'city_id'     =>  $request->city,
-            'country_id'  =>  $request->country,
-            'gender_id'   =>  $request->gender_name,
-        ]);        
+        ]);
 
         return redirect('/employee');
     }
