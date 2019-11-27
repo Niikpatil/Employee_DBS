@@ -12,12 +12,12 @@ class GendersTableSeeder extends Seeder
     public function run()
     {
         DB::table('genders')->insert([
-            'gender_name'  =>  'male',
+            'gender_name'  =>  'Male',
             'created_at'   =>  date('Y-m-d H:i:s'),
             'updated_at'   =>  date('Y-m-d H:i:s'),
         ]);
         DB::table('genders')->insert([
-            'gender_name'  =>  'female',
+            'gender_name'  =>  'Female',
             'created_at'   =>  date('Y-m-d H:i:s'),
             'updated_at'   =>  date('Y-m-d H:i:s'),
         ]);

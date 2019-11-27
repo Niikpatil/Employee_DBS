@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<ol class="breadcrumb">
+<ol class="breadcrumb shadow-sm">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/employee">Employee</a></li>
     <li class="breadcrumb-item">Create</li>
@@ -13,11 +13,11 @@
         <div class="row">
             <div class="text-center col-md-10 offset-md-1">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header shadow-sm p-3 mb-4 rounded">
                         <h4>Create Profile</h4>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body shadow-sm">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <strong>Whoops !</strong> <br />

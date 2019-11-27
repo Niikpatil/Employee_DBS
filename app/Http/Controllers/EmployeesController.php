@@ -114,9 +114,33 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()  
+    public function show($id)
     {
-        //
+
+        // $data = Employee::findOrFail($id);
+        // return view('employee.show', compact('data'));
+
+        $departments = Department::orderBy('division', 'asc')->get();
+        $states = State::orderBy('state_name', 'asc')->get();
+        $cities = City::orderBy('city', 'asc')->get();
+        $countries = Country::orderBy('nation', 'asc')->get();
+        $salaries = Salary::orderBy('pay', 'asc')->get();
+        $genders = Gender::orderBy('gender_name', 'desc')->get();
+        $data = Employee::findOrFail($id);
+
+        return view('employee.show')->with([
+
+                'division'     =>  $departments,
+                'state_name'   =>  $states,
+                'cities'       =>  $cities,
+                'countries'    =>  $countries,
+                'salaries'     =>  $salaries,
+                'gender_name'  =>  $genders,
+                'data'         =>  $data,
+
+        ]);  
+
+
     }
 
     /**
@@ -133,7 +157,6 @@ class EmployeesController extends Controller
         $countries = Country::orderBy('nation', 'asc')->get();
         $salaries = Salary::orderBy('pay', 'asc')->get();
         $genders = Gender::orderBy('gender_name', 'desc')->get();
-
         $employee = Employee::findOrFail($id);
 
         return view('employee.edit')->with([

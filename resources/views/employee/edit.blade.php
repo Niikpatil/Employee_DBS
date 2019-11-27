@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<ol class="breadcrumb">
+<ol class="breadcrumb shadow-sm">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item"><a href="/employee">Employee</a></li>
     <li class="breadcrumb-item">Edit</li>
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="text-center col-md-10 offset-md-1">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header shadow-sm p-3 mb-4 rounded">
                         <h4>Edit Employee</h4>
                     </div>
 
@@ -156,7 +156,7 @@
                                     <button type="submit" class="btn btn-sm btn-primary">Submit</button> 
                                 </div> 
                         </form>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>
