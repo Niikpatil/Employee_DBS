@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="text-center col-md-10 offset-md-1 ">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header shadow-sm p-3 mb-4 rounded">
                         <h4>Show Employee</h4>
                     </div>
