@@ -23,14 +23,12 @@ class EmployeesController extends Controller
      */
     public function index(Request $request)
     {
-        $emp_data = Employee::paginate(2);
-        $departments = Department::orderBy('division', 'asc')->get();
 
+        $emp_data = Employee::orderBy('first_name', 'asc')->paginate(5);
         return view('employee.index')->with([
                 'emp_data' =>  $emp_data,
         ]);
-    }                
-
+    }
     /**
      * Show the form for creating a new resource.
      *
