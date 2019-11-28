@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Employee;
 use App\Department;
@@ -10,7 +11,7 @@ use App\City;
 use App\State;
 use App\Salary;
 use App\Gender;
-use DB;
+// use DB;
 
 
 class EmployeesController extends Controller
@@ -22,7 +23,7 @@ class EmployeesController extends Controller
      */
     public function index(Request $request)
     {
-        $emp_data = Employee::all();
+        $emp_data = Employee::paginate(2);
         $departments = Department::orderBy('division', 'asc')->get();
 
         return view('employee.index')->with([
