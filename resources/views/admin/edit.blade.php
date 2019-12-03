@@ -14,12 +14,13 @@
             <div class="text-center col-md-10 offset-md-1">
                 <div class="card shadow">
                     <div class="card-header shadow-sm">
-                        <h4>Create Admin</h4>
+                        <h4>Update Admin</h4>
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('cities.store') }}" method="POST">
+                        <form action="/admin/{{ $admin->id }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="text-left">
                                 <div class="input-group col-md-4 offset-md-2 mt-5">
                                     <div class="input-group-prepend shadow">
@@ -32,7 +33,7 @@
                                     <div class="input-group-prepend shadow">
                                         <span class="input-group-text shadow"><strong>Last name</strong></span>
                                     </div>
-                                    <input type="text"  name="last_name"  value="{{ $admin->last_name }}"  class="form-control shadow" >
+                                    <input type="text" name="last_name"  value="{{ $admin->last_name }}"  class="form-control shadow" >
                                 </div> <br /> <br />
 
                                 <div class="input-group col-md-6 offset-md-2">
@@ -56,38 +57,22 @@
                                     <input type="password"  name="password"  value="{{ $admin->password }}"  class="form-control shadow" >
                                 </div> <br /> <br />
 
-                                {{-- <div class="input-group col-md-6 offset-md-2">
-                                    <div class="input-group-prepend shadow">
-                                        <span class="input-group-text shadow"
-                                            id="basic-addon1"><strong>Password</strong></span>
+                                <div class="input-group col-lg-10 offset-md-2 ">
+                                    <div class="custom-file shadow col-md-4">
+                                        <input type="file" name='a_pic' value="{{ $admin->a_pic}}" class="custom-file-input shadow">
+                                        <label class="custom-file-label shadow">Choose file</label>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Username" aria-label="Username"
-                                        aria-describedby="basic-addon1">
-                                </div> <br /> <br /> --}}
-
-                                <div class="input-group col-md-6 offset-md-2 ">
-                                    <div class="input-group-prepend shadow">
-                                        <span class="input-group-text shadow" ><strong>Image</strong></span>
+                                    <div class="form-group col-md-2 offset-2">
+                                        <input type="hidden" name='hidden_apic' class="custom-file-input shadow" >
+                                        <img src="{{ URL::to('/')}}/images/admin/{{ $admin->a_pic }}" alt="">
                                     </div>
-                                    <div class="custom-file shadow">
-                                        <input type="file" class="custom-file-input shadow">
-                                        <label class="custom-file-label shadow" for="inputGroupFile01">Choose file</label>
-                                    </div>
-
-                                    {{-- <div class="form-group">
-                                        <input type="hidden" class="custom-file-input shadow" >
-                                    </div> --}}
-
                                 </div>
 
                             </div> <br /><br />
-                            <a href="/cities" class="btn btn-sm btn-danger shadow">Back</a>
+                            <a href="/admin" class="btn btn-sm btn-danger shadow">Back</a>
                             <div class="btn">
                                 <button type="submit" class="btn btn-sm btn-primary shadow">Submit</button>
                             </div>
-
-                            
-                            
 
                         </form>
                     </div>

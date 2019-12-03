@@ -32,7 +32,7 @@
                                         <a class="btn btn-sm btn-primary shadow-sm text-white m-1" href="/admin/{{ $adm->id }}"> Show </a>
                                         <a class="btn btn-sm btn-warning shadow-sm text-white m-1" href="/admin/{{ $adm->id }}/edit"> Update </a>
                                         <div class="btn btn-sm">
-                                            <form action="/countries/{{$adm->id}}" method="POST">
+                                            <form action="/admin/{{$adm->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm shadow-sm btn-danger">Delete</button>

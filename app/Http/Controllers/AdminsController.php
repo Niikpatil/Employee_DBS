@@ -37,15 +37,14 @@ class AdminsController extends Controller
      */
     public function store(Request $request)
     {
-        // return dd($request->all());
 
         $request->validate([
-                'first_name'   =>  'required | min:3 | max:20',
-                'last_name'    =>  'required | min:3 | max:20',
-                'email'        =>  'required | email | unique:users,email',
-                'user_name'    =>  'required | min:3 | max:20',
-                'password'     =>  'required | min:6',
-                'ad_pic'       =>  'image | mimes:jpeg,png,jpg | max:3000'
+            'first_name'   =>  'required | min:3 | max:20',
+            'last_name'    =>  'required | min:3 | max:20',
+            'email'        =>  'required | email | unique:users,email',
+            'user_name'    =>  'required | min:3 | max:20',
+            'password'     =>  'required | min:6',
+            'a_pic'       =>  'image | mimes:jpeg,png,jpg | max:3000'
         ]);
 
             $admin_data = new Admin();
@@ -59,10 +58,9 @@ class AdminsController extends Controller
             {
                 $file = $request->file('a_pic');
                 $extention = $file->getClientOriginalExtention();
-
                 $pic_name = time().'_' . '.' .$extention;
-                $file = move(public_path('images/admin'), $pic_name);
 
+                $file = move(public_path('images/admin'), $pic_name);
                 $admin_data->a_pic = $pic_name;
             }
 
@@ -104,7 +102,36 @@ class AdminsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update_pic  =  $request->hidden_apic;
+        $a_pic       =  $request->file('a_pic');
+
+            if ($a_pic != '')
+            {
+                $request->validate([
+                    'first_name'   =>  'required | min:3 | max:20',
+                    'last_name'    =>  'required | min:3 | max:20',
+                    'email'        =>  'required | email | unique:users,email',
+                    'user_name'    =>  'required | min:3 | max:20',
+                    'password'     =>  'required | min:6',
+                    'a_pic'        =>  'image | mimes:jpeg,png,jpg | max:3000'
+                ]);
+                
+                
+                $extention  =  $a_pic->getClientOriginalExtension();
+                $update_pic = time(). '-' . '.' .$extention;
+                $a_pic->move(public_path('images\admin'), $update_pic);
+            }
+        
+        Admin::whereId($id)->update([
+            'first_name' =>  $request->input('first_name'),
+            'last_name'  =>  $request->input('last_name'),
+            'user_name'  =>  $request->input('user_name'),
+            'email'      =>  $request->input('email'),
+            'password'   =>  $request->input('password'),
+            'a_pic'      =>  $update_pic,
+        ]);
+
+        return redirect('admin');
     }
 
     /**
@@ -113,8 +140,9 @@ class AdminsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Admin::findOrFail($id)->delete();
+        return redirect('admin');
     }
 }

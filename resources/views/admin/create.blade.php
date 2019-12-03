@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.store') }}" method="POST">
+                        <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="text-left">
                                 <div class="input-group col-md-5 offset-md-2 mt-5">
@@ -62,15 +62,6 @@
                                     <input type="password" name="password" class="form-control shadow" placeholder="Username" aria-label="Username"
                                         aria-describedby="basic-addon1">
                                 </div> <br /> <br />
-
-                                {{-- <div class="input-group col-md-6 offset-md-2">
-                                    <div class="input-group-prepend shadow">
-                                        <span class="input-group-text shadow"
-                                            id="basic-addon1"><strong>Password</strong></span>
-                                    </div>
-                                    <input type="password" class="form-control" placeholder="Username" aria-label="Username"
-                                        aria-describedby="basic-addon1">
-                                </div> <br /> <br /> --}}
 
                                 <div class="input-group col-md-6 offset-md-2 ">
                                     <div class="input-group-prepend shadow">
