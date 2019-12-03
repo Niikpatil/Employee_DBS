@@ -33,6 +33,7 @@
 
 
     // For Department
+    Route::resource('/admin', 'AdminsController');
     Route::resource('/department', 'DepartmentsController');
     Route::resource('/salaries', 'SalariesController');
     Route::resource('/cities', 'CitiesController');

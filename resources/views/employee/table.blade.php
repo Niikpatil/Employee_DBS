@@ -2,7 +2,7 @@
 
         <div class="row m-4">
             <div class="text-center col-lg-12">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header shadow-sm p-3 mb-4 rounded">
                         <h4>Employee details</h4>
                         <div align="right">

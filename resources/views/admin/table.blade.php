@@ -1,86 +1,50 @@
     <div class="animated fadeIn">
 
     <div class="row m-4">
-        <div class=" col-lg-12">
-            <div class="card">
-                <div class="card-header"> Simple Table </div>
-                <div class="card-body">
+        <div class="text-center col-md-10 offset-md-1">
+            <div class="card shadow">
+                <div class="card-header shadow-sm p-3 mb-4 rounded">
+                    <h4>Admin</h4>       
+                    <div align="right">
+                        <a href="{{ route('admin.create') }}" class="btn btn-info shadow-md rounded" role="button" aria-pressed="true">Create</a>
+                    </div> 
+                </div>
+
+                <div class="card-body shadow-sm">
                     <table class="table table-striped table-responsive-sm">
                         <thead class="table-dark text">
                             <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
+                                <th width="1%">Picture</th>
+                                <th width="2%">Name</th>
+                                <th width="2%">Username</th>
+                                <th width="5%" colspan="3">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Samppa Nori</td>
-                                <td>2012/01/01</td>
-                                <td>Member</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Estavan Lykos</td>
-                                <td>2012/02/01</td>
-                                <td>Staff</td>
-                                <td>
-                                    <span class="badge badge-danger">Banned</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Chetan Mohamed</td>
-                                <td>2012/02/01</td>
-                                <td>Admin</td>
-                                <td>
-                                    <span class="badge badge-secondary">Inactive</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Derick Maximinus</td>
-                                <td>2012/03/01</td>
-                                <td>Member</td>
-                                <td>
-                                    <span class="badge badge-warning">Pending</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Friderik Dávid</td>
-                                <td>2012/01/21</td>
-                                <td>Staff</td>
-                                <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
-                            </tr>
+                            @foreach ($admin as $adm)
+                                <tr>
+                                    <td>
+                                        <img src="{{ asset('images/admin/' .$adm->a_pic) }}" class="img-thumbnail" width="70px">
+                                    </td>
+                                    <td> {{ $adm->first_name }} {{ $adm->last_name }} </td>
+                                    <td> {{ $adm->user_name }} </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary shadow-sm text-white m-1" href="/admin/{{ $adm->id }}"> Show </a>
+                                        <a class="btn btn-sm btn-warning shadow-sm text-white m-1" href="/admin/{{ $adm->id }}/edit"> Update </a>
+                                        <div class="btn btn-sm">
+                                            <form action="/countries/{{$adm->id}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm shadow-sm btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#">Prev</a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
-        
     </div>
-    
 </div>

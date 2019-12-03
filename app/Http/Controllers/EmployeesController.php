@@ -97,7 +97,7 @@ class EmployeesController extends Controller
 
             // To append the timpstamp within file name
             $pic_name = rand() . '_' .md5(time()). '_' . '.' .$extension;
-;
+
             $file->move(public_path('images/emp'), $pic_name);
             $emp_data->pic = $pic_name;
         }

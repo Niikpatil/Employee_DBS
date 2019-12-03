@@ -45,7 +45,7 @@
         </li> 
 
         <li class="nav-item">
-            <a class="nav-link" href="admin">
+            <a class="nav-link" href="{{ route('admin.index') }}">
                 <i class="nav-icon icon-star"></i> Admin</a>
         </li>
 
