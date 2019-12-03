@@ -1,12 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/">Home</a>
-        </li>
+    <ol class="breadcrumb shadow-sm">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item active">Admin</li>
-        {{-- <li class="breadcrumb-item ">Dashboard</li> --}}
     </ol>
 
     <div class="app-body">
@@ -14,5 +11,4 @@
             @include('admin.table')
         </div>
     </div>
-
 @endsection

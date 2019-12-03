@@ -4,7 +4,7 @@
         <div class="text-center col-md-10 offset-md-1">
             <div class="card shadow">
                 <div class="card-header shadow-sm p-3 mb-4 rounded">
-                    <h4>Admin</h4>       
+                    <h4>Admin</h4>
                     <div align="right">
                         <a href="{{ route('admin.create') }}" class="btn btn-info shadow-md rounded" role="button" aria-pressed="true">Create</a>
                     </div> 
