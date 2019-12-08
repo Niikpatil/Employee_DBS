@@ -39,3 +39,6 @@
     Route::resource('/cities', 'CitiesController');
     Route::resource('/states', 'StatesController');
     Route::resource('/countries', 'CountriesController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
