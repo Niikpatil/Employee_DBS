@@ -38,5 +38,6 @@
     @if(Request::path() === 'admin')
     <script src="js/main.js"></script>
     @endif
+
 </body>
 </html>

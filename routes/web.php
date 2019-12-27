@@ -15,6 +15,10 @@
     // Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
 
 
+    // Route::get('/login2', function () {
+    //     return view('tground.create');
+    // });
+
     Route::get('/home', function () {
         return view('layouts.app');
     });
@@ -25,11 +29,11 @@
 
     Route::get('/', function() {
         return view('dashboard.index');
-    });
+    })->middleware('auth');
 
 
 
-    Route::resource('/employee', 'EmployeesController');
+    Route::resource('/employee', 'EmployeesController')->middleware('auth');
 
 
     // For Department
@@ -39,6 +43,9 @@
     Route::resource('/cities', 'CitiesController');
     Route::resource('/states', 'StatesController');
     Route::resource('/countries', 'CountriesController');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

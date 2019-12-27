@@ -11,6 +11,6 @@
     <div class="container">
         @include('organisation_record.departments.table')
     </div>
-</div>  
+</div>
 
 @endsection
