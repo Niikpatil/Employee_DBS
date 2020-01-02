@@ -12,20 +12,17 @@
 */
 
 
-    // Route::post('employee/update', 'EmployeesController@update')->name('employee.update');
-
-
-    // Route::get('/login2', function () {
-    //     return view('tground.create');
+    // Route::get('/welcome', function () {
+    //     return view('common.welcome');
     // });
 
-    Route::get('/home', function () {
-        return view('layouts.app');
-    });
+    // Route::get('/home', function () {
+    //     return view('layouts.app');
+    // });
 
-    Route::get('/admin', function () {
-        return view('admin.index');
-    });
+    // Route::get('/admin', function () {
+    //     return view('admin.index');
+    // });
 
     Route::get('/', function() {
         return view('dashboard.index');
@@ -37,7 +34,7 @@
 
 
     // For Department
-    Route::resource('/admin', 'AdminsController');
+    Route::resource('/admin', 'AdminsController')->middleware('auth');;
     Route::resource('/department', 'DepartmentsController');
     Route::resource('/salaries', 'SalariesController');
     Route::resource('/cities', 'CitiesController');
@@ -48,4 +45,4 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
