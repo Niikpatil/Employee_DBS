@@ -29,7 +29,6 @@
     })->middleware('auth');
 
 
-
     Route::resource('/employee', 'EmployeesController')->middleware('auth');
 
 
@@ -40,7 +39,6 @@
     Route::resource('/cities', 'CitiesController');
     Route::resource('/states', 'StatesController');
     Route::resource('/countries', 'CountriesController');
-
 
 
 Auth::routes();
