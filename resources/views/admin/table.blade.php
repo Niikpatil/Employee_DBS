@@ -5,9 +5,6 @@
             <div class="card shadow">
                 <div class="card-header shadow-sm p-3 mb-4 rounded">
                     <h4>Admin</h4>
-                    <div align="right">
-                        <a href="{{ route('admin.create') }}" class="btn btn-info shadow-md rounded" role="button" aria-pressed="true">Create</a>
-                    </div> 
                 </div>
 
                 <div class="card-body shadow-sm">
@@ -26,19 +23,11 @@
                                     <td>
                                         <img src="{{ asset('images/admin/' .$adm->admin_pic) }}" class="img-thumbnail" width="70px">
                                     </td>
-                                    
                                     <td> {{ $adm->name }} </td>
                                     <td> {{ $adm->email }} </td>
                                     <td>
                                         <a class="btn btn-sm btn-primary shadow-sm text-white m-1" href="/admin/{{ $adm->id }}"> Show </a>
                                         <a class="btn btn-sm btn-warning shadow-sm text-white m-1" href="/admin/{{ $adm->id }}/edit"> Update </a>
-                                        <div class="btn btn-sm">
-                                            <form action="/admin/{{$adm->id}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm shadow-sm btn-danger">Delete</button>
-                                            </form>
-                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

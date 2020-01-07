@@ -8,17 +8,13 @@
 
         <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-layers"></i>Company details </a>
+                <i class="nav-icon icon-layers"></i>Company Info</a>
             <ul class="nav-dropdown-items">
             
                 <li class="nav-item">   
                     <a class="nav-link" href="{{ route('department.index') }}">
                         <i class="nav-icon cui-briefcase"></i> Department</a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="base/cards.html">
-                        <i class="nav-icon icon-screen-desktop"></i> Division</a>
-                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('salaries.index') }}">
                         <i class="nav-icon cui-dollar"></i> Salaries</a>

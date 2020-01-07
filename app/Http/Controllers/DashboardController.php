@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use App\Employee;
+use App\Department;
+use App\City;
+
 class DashboardController extends Controller
 {
     /**
@@ -13,7 +18,18 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $user         = User::all()->count();
+        $employee     = Employee::all()->count();
+        $department   = Department::all()->count();
+        $city         = City::all()->count();
+
+
+        return view('dashboard.index')->with([
+                'user'      => $user,
+                'employee'  => $employee,
+                'department'      => $department,
+                'city'      => $city,
+        ]);
     }
 
     /**

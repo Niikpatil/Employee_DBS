@@ -63,7 +63,7 @@
                                         <label class="custom-file-label shadow">Choose file</label>
                                     </div>
                                     <div class="form-group col-md-2 offset-2">
-                                        {{-- <input type="hidden" name='hidden_apic' class="custom-file-input shadow" > --}}
+                                        <input type="hidden" name='hidden_apic' class="custom-file-input shadow" >
                                         <img src="{{ URL::to('/')}}/images/admin/{{ $admin->admin_pic }}" alt=""  width="200">
                                     </div>
                                 </div>

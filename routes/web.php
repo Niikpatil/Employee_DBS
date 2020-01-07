@@ -24,10 +24,13 @@
     //     return view('admin.index');
     // });
 
-    Route::get('/', function() {
-        return view('dashboard.index');
-    })->middleware('auth');
+    Route::get('/','DashboardController@index')->name('dashboard')->middleware('auth');
 
+    // Route::get('/', function() {
+        
+    //     return view('dashboard.index');
+        
+    // })->middleware('auth');
 
 
     Route::resource('/employee', 'EmployeesController')->middleware('auth');

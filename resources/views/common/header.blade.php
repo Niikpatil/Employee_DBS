@@ -3,14 +3,8 @@
         <span class="navbar-toggler-icon">
         </span>
     </button>
-    {{-- <a class="navbar-brand" href="#">
-        <img alt="CoreUI Logo" class="navbar-brand-full" height="25" src="img/brand/logo.svg" width="89">
-            <img alt="CoreUI Logo" class="navbar-brand-minimized" height="30" src="img/brand/sygnet.svg" width="30">
-            </img>
-        </img>
-    </a> --}}
     <a class="navbar-brand" href="{{ url('/') }}">
-        {{ config('app.name', 'Laravel') }}
+        EMS
     </a>
 
     <button class="navbar-toggler sidebar-toggler d-md-down-none" data-toggle="sidebar-lg-show" type="button">
@@ -38,26 +32,12 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <div class="dropdown-header text-center">
-                    <strong>
-                        Account
-                    </strong>
-                </div>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-user">
-                    </i>
-                    Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fa fa-wrench">
-                    </i>
-                    Settings
-                </a>
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                <div class="dropdown-header text-center"">
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                    <i class="fa fa-lock"></i>
-                    {{ __('Logout') }}
-                </a>
+                        <i class="fa fa-lock"></i> <strong>LogOut</strong>
+                    </a>
+                </div>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
