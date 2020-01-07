@@ -124,18 +124,6 @@
                                     </select>
                                 </div>
                             </div> <br /><br /><br />
-{{-- 
-                            <div class="form-row col-md-11 text-left">
-                                <div class="form-group col-sm-4 offset-sm-2">
-                                    <label for="dob">Date Of Birth</label>
-                                    <input type="text" placeholder="23-jan-1998"  class="form-control" id="dob" disabled>
-                                </div> 
-                                <div class="form-group col-sm-4 offset-sm-1">
-                                    <label for="doj">Date of Join</label>
-                                    <input type="text" placeholder="22-may-2019"  class="form-control" id="doj" disabled>
-                                </div>
-                            </div> <br />
-                            --}}
 
                             <div class="form-row col-md-11 text-left">
                                 <div class="form-group col-sm-4 offset-sm-2">

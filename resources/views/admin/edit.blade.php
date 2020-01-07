@@ -50,13 +50,6 @@
                                     <input type="text"  name="email"  value="{{ $admin->email }}"  class="form-control shadow" >
                                 </div> <br /> <br />
 
-                                {{-- <div class="input-group col-md-6 offset-md-2">
-                                    <div class="input-group-prepend shadow">
-                                        <span class="input-group-text shadow"><strong>Password</strong></span>
-                                    </div>
-                                    <input type="password"  name="password"  value="{{ $admin->password }}"  class="form-control shadow" >
-                                </div> <br /> <br /> --}}
-
                                 <div class="input-group col-lg-10 offset-md-2 ">
                                     <div class="custom-file shadow col-md-4">
                                         <input type="file" name='admin_pic' value="{{ $admin->admin_pic}}" class="custom-file-input shadow">
