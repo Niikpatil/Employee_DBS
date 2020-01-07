@@ -38,33 +38,33 @@
 
                                 <div class="input-group col-md-6 offset-md-2">
                                     <div class="input-group-prepend shadow">
+                                        <span class="input-group-text shadow"><strong>Username</strong></span>
+                                    </div>
+                                    <input type="text"  name="name"  value="{{ $admin->name }}"  class="form-control shadow" >
+                                </div> <br /> <br />
+
+                                <div class="input-group col-md-6 offset-md-2">
+                                    <div class="input-group-prepend shadow">
                                         <span class="input-group-text shadow"><strong>eMail</strong></span>
                                     </div>
                                     <input type="text"  name="email"  value="{{ $admin->email }}"  class="form-control shadow" >
                                 </div> <br /> <br />
 
-                                <div class="input-group col-md-6 offset-md-2">
-                                    <div class="input-group-prepend shadow">
-                                        <span class="input-group-text shadow"><strong>Username</strong></span>
-                                    </div>
-                                    <input type="text"  name="user_name"  value="{{ $admin->user_name }}"  class="form-control shadow" >
-                                </div> <br /> <br />
-
-                                <div class="input-group col-md-6 offset-md-2">
+                                {{-- <div class="input-group col-md-6 offset-md-2">
                                     <div class="input-group-prepend shadow">
                                         <span class="input-group-text shadow"><strong>Password</strong></span>
                                     </div>
                                     <input type="password"  name="password"  value="{{ $admin->password }}"  class="form-control shadow" >
-                                </div> <br /> <br />
+                                </div> <br /> <br /> --}}
 
                                 <div class="input-group col-lg-10 offset-md-2 ">
                                     <div class="custom-file shadow col-md-4">
-                                        <input type="file" name='a_pic' value="{{ $admin->a_pic}}" class="custom-file-input shadow">
+                                        <input type="file" name='admin_pic' value="{{ $admin->admin_pic}}" class="custom-file-input shadow">
                                         <label class="custom-file-label shadow">Choose file</label>
                                     </div>
                                     <div class="form-group col-md-2 offset-2">
-                                        <input type="hidden" name='hidden_apic' class="custom-file-input shadow" >
-                                        <img src="{{ URL::to('/')}}/images/admin/{{ $admin->a_pic }}" alt="">
+                                        {{-- <input type="hidden" name='hidden_apic' class="custom-file-input shadow" > --}}
+                                        <img src="{{ URL::to('/')}}/images/admin/{{ $admin->admin_pic }}" alt=""  width="200">
                                     </div>
                                 </div>
 

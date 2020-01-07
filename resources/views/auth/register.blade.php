@@ -16,7 +16,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input  type="text" id="name" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input  type="text" id="name" placeholder="Username" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
