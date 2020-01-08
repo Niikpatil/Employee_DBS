@@ -12,38 +12,24 @@
 */
 
 
-    // Route::get('/welcome', function () {
-    //     return view('common.welcome');
-    // });
 
-    // Route::get('/home', function () {
-    //     return view('layouts.app');
-    // });
-
-    // Route::get('/admin', function () {
-    //     return view('admin.index');
-    // });
 
     Route::get('/','DashboardController@index')->name('dashboard')->middleware('auth');
 
-    // Route::get('/', function() {
-        
-    //     return view('dashboard.index');
-        
-    // })->middleware('auth');
 
 
-    Route::resource('/employee', 'EmployeesController')->middleware('auth');
+    Route::middleware(['auth'])->group(function () {
 
+            // For Department
+        Route::resource('/admin', 'AdminsController');
+        Route::resource('/employee', 'EmployeesController');
+        Route::resource('/department', 'DepartmentsController');
+        Route::resource('/salaries', 'SalariesController');
+        Route::resource('/cities', 'CitiesController');
+        Route::resource('/states', 'StatesController');
+        Route::resource('/countries', 'CountriesController');
 
-    // For Department
-    Route::resource('/admin', 'AdminsController')->middleware('auth');;
-    Route::resource('/department', 'DepartmentsController');
-    Route::resource('/salaries', 'SalariesController');
-    Route::resource('/cities', 'CitiesController');
-    Route::resource('/states', 'StatesController');
-    Route::resource('/countries', 'CountriesController');
-
+    });
 
 
 Auth::routes();

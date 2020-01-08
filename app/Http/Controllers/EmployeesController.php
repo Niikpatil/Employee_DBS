@@ -11,11 +11,16 @@ use App\City;
 use App\State;
 use App\Salary;
 use App\Gender;
-// use DB;
 
 
 class EmployeesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     /**
      * Display a listing of the resource.
      *
