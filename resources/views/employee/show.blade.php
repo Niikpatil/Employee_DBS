@@ -54,7 +54,7 @@
                                 <p> Gender : <strong> {{ $data->empGender->gender_name }} </strong> </p>
                             </div>
                             <div class="col-md-6">
-                                <p>Date of Birth : <strong> feb </strong> </p>
+                                <p> Country : <strong> {{ $data->empCountry->nation }} </strong> </p>
                             </div>
                         </div>
 
@@ -67,14 +67,6 @@
                             </div>
                         </div>
 
-                        <div class="row col-md-12 m-5 text-left">
-                            <div class="col-md-6">
-                                <p> Country : <strong> {{ $data->empCountry->nation }} </strong> </p>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Date of Join : <strong> March </strong> </p>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="d-flex justify-content-around p-1 mb-5 ">
