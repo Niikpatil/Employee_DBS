@@ -12,10 +12,12 @@ use App\City;
 class DashboardController extends Controller
 {
 
+
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
+
 
     /**
      * Display a listing of the resource.

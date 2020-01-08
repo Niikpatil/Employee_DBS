@@ -20,7 +20,7 @@
 
     Route::middleware(['auth'])->group(function () {
 
-            // For Department
+        // For Department
         Route::resource('/admin', 'AdminsController');
         Route::resource('/employee', 'EmployeesController');
         Route::resource('/department', 'DepartmentsController');
