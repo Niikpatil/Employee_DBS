@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CountriesTableSeeder::class,
             DivisionTableSeeder::class,
             SalariesTableSeeder::class,
+            AdminTableSeeder::class,
         ]);
     }
 }
