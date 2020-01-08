@@ -32,3 +32,16 @@
 ```bash
     php artisan migrate
 ```
+
+
+<h4 align="center">Employee_DBS</h4>
+
+![screen shot]  (https://github.com/Niikpatil/Employee_DBS/blob/Prime_1/pictures/login.jpg)
+
+![screen shot]  (https://github.com/Niikpatil/Employee_DBS/blob/Prime_1/pictures/dashboard.jpg)
+
+![screen shot]  (https://github.com/Niikpatil/Employee_DBS/blob/Prime_1/pictures/emp_index.png)
+
+![screen shot]  (https://github.com/Niikpatil/Employee_DBS/blob/Prime_1/pictures/emp_view.png)
+
+![screen shot]  (https://github.com/Niikpatil/Employee_DBS/blob/Prime_1/pictures/admin_dash.png)
